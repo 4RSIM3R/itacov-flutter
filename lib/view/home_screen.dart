@@ -109,14 +109,16 @@ class HomeScreen extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: 70, vertical: 25.0),
               child: Container(
                 width: 250,
-                child: TextFormField(
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(26.0),
+                child: SingleChildScrollView(
+                  child: TextFormField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(26.0),
+                        ),
                       ),
+                      labelText: 'Seluruh Indonesia',
                     ),
-                    labelText: 'Seluruh Indonesia',
                   ),
                 ),
               ),
