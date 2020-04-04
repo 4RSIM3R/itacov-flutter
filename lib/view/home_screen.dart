@@ -77,7 +77,7 @@ class HomeScreen extends StatelessWidget {
       bottom: 0,
       child: Column(
         children: <Widget>[
-          headingTextMedium(text: 'Lawan', color: white),
+          headingTextBold(text: 'Lawan', color: white),
           SizedBox(height: 10),
           headingTextBold(text: 'COVID-19', color: white),
         ],
@@ -100,6 +100,28 @@ class HomeScreen extends StatelessWidget {
             topLeft: Radius.circular(36.0),
             topRight: Radius.circular(36.0),
           ),
+        ),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 70, vertical: 25.0),
+              child: Container(
+                width: 250,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(26.0),
+                      ),
+                    ),
+                    labelText: 'Seluruh Indonesia',
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
       ),
     );
