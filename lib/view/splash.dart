@@ -11,7 +11,7 @@ class Splash extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: GestureDetector(
-        onTap: (){
+        onTap: () {
           App.main.router.navigate(RouteConfig.MAIN);
         },
         child: Container(
@@ -32,11 +32,26 @@ class Splash extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text('ITA', textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline4,),
-                    Text('COV', textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline4.apply(color: txtPink),),
+                    Text(
+                      'ITA',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context).textTheme.headline,
+                    ),
+                    Text(
+                      'COV',
+                      textAlign: TextAlign.center,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline
+                          .apply(color: txtPink),
+                    ),
                   ],
                 ),
-                Text('Indonesia\nTanggap\nCOVID-19', textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline5,),
+                Text(
+                  'Indonesia\nTanggap\nCOVID-19',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context).textTheme.headline,
+                ),
               ],
             ),
           ),
