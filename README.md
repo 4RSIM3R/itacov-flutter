@@ -11,3 +11,7 @@ Sebuah project aplikasi mobile open source made with flutter, di harapkan dapat 
 
 - [Mas Saladin | Designer](mailto:heysaladin@gmail.com)
 - [Suku | Kuli Ngetik](mailto:ilzammulkhaq85@gmail.com)
+- [Hanan | Budak Invoice](mailto:hasyrawi@gmail.com)
+
+## for Home Screen Now not 
+![flutter_02.png](flutter_02.png)
