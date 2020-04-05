@@ -35,22 +35,19 @@ class Splash extends StatelessWidget {
                     Text(
                       'ITA',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline1,
+                      style: Theme.of(context).textTheme.headline,
                     ),
                     Text(
                       'COV',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline1
-                          .apply(color: txtPink),
+                      style: Theme.of(context).textTheme.headline.apply(color: txtPink),
                     ),
                   ],
                 ),
                 Text(
                   'Indonesia\nTanggap\nCOVID-19',
                   textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.headline,
                 ),
               ],
             ),
