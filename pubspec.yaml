@@ -23,8 +23,6 @@ dependencies:
   rxdart: ^0.23.1
   get_it: ^4.0.1
   sailor: ^0.6.0
-  flutter_bloc: ^3.2.0
-  equatable: ^1.1.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
