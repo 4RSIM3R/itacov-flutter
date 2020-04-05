@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:itacov/config/style.dart';
-import 'package:itacov/view/splash.dart';
 import 'package:sailor/sailor.dart';
 
 import 'core/app.dart';
