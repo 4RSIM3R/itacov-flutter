@@ -5,12 +5,11 @@ final ThemeData defaultTheme = ThemeData(
   fontFamily: 'Poppins',
   primaryColor: Colors.indigo,
   textTheme: TextTheme(
-      headline3: TextStyle(color: Colors.white, fontSize: 40, fontWeight: FontWeight.w600),
-      headline4: TextStyle(color: Colors.white, fontSize: 36, fontWeight: FontWeight.w600),
-      headline5: TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.w500),
+    headline1: TextStyle(
+        color: Colors.white, fontSize: 40, fontWeight: FontWeight.w600),
   ),
   buttonTheme: ButtonThemeData(
-//    buttonColor: ColorConfig.PRIMARY,
+      // buttonColor: ColorConfig.PRIMARY,
       ),
 );
 
