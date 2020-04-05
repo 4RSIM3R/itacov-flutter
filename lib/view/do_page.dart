@@ -2,9 +2,10 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:itacov/widgets/app_widgets.dart';
+import 'package:itacov/widgets/card_widget.dart';
 
 import '../constant/constant.dart';
-import '../constant/typhography.dart';
 
 class DoPage extends StatelessWidget {
   @override
@@ -14,58 +15,13 @@ class DoPage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Stack(
             children: <Widget>[
-              AppWidget(),
+              AppWidget(
+                image: "assets/img/do.png",
+              ),
               BodyWidget(),
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-class AppWidget extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 375,
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [deepBlue, midPurple, midPink],
-          begin: Alignment(-1.0, -1.0),
-          end: Alignment(1.0, 1.0),
-        ),
-      ),
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 34,
-            left: 35,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                headingTextBold(
-                    text: 'ITA', color: white, textAlign: TextAlign.center),
-                headingTextBold(
-                    text: 'COV', color: txtPink, textAlign: TextAlign.center)
-              ],
-            ),
-          ),
-          Positioned(
-            top: 34,
-            right: 35,
-            child: Icon(
-              Icons.notifications,
-              color: Colors.white,
-              size: 35,
-            ),
-          ),
-          Positioned(
-            top: 67.59,
-            right: 35.23,
-            child: Image.asset('assets/img/do.png'),
-          ),
-        ],
       ),
     );
   }
@@ -137,51 +93,7 @@ class BodyWidget extends StatelessWidget {
   }
 }
 
-class CardWidget extends StatelessWidget {
-  final Icon icon;
-  final String label;
-  final Function() onTap;
 
-  CardWidget({this.icon, this.label, this.onTap});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(18),
-            color: Color(0XFFFFFFFF),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Row(
-              children: <Widget>[
-                icon,
-                SizedBox(
-                  width: 15,
-                ),
-                Expanded(
-                  child: Text(
-                    label,
-                    style: TextStyle(
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.w700,
-                      fontSize: 16,
-                      color: Color(0XFF353535),
-                    ),
-                  ),
-                ),
-                Icon(Icons.arrow_right),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
 class HelpCenterWidget extends StatelessWidget {
   @override
