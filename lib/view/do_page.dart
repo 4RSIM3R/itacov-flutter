@@ -16,7 +16,7 @@ class DoPage extends StatelessWidget {
           child: Stack(
             children: <Widget>[
               AppWidget(
-                image: "assets/img/do.png",
+                image: "assets/images/do.png",
               ),
               BodyWidget(),
             ],
