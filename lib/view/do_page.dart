@@ -93,8 +93,6 @@ class BodyWidget extends StatelessWidget {
   }
 }
 
-
-
 class HelpCenterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -245,7 +243,7 @@ class PahlawanWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Container(
             width: 166,
@@ -309,7 +307,7 @@ class KerumunanWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: 5,
           ),
           Text(
             'Untuk mendukung program social distancing, Anda dapat melaporkan pada petugas keamanan jika menemukan kerumunan.',
@@ -321,7 +319,7 @@ class KerumunanWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 15,
+            height: 5,
           ),
           Container(
             width: double.infinity,
@@ -418,7 +416,7 @@ class CardHoax extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 15,
+              height: 10,
             ),
             Container(
               width: 136,
@@ -427,20 +425,18 @@ class CardHoax extends StatelessWidget {
                 style: TextStyle(
                   fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
-                  fontSize: 14,
+                  fontSize: 12,
                   color: Colors.black,
                 ),
               ),
             ),
-            SizedBox(
-              height: 7,
-            ),
+            
             Text(
               '+ 2 Poin',
               style: TextStyle(
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.w700,
-                fontSize: 17,
+                fontSize: 12,
                 color: Color(0XFFDC10AF),
               ),
             ),

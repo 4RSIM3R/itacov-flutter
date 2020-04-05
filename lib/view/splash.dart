@@ -40,7 +40,10 @@ class Splash extends StatelessWidget {
                     Text(
                       'COV',
                       textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.headline.apply(color: txtPink),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline
+                          .apply(color: txtPink),
                     ),
                   ],
                 ),
