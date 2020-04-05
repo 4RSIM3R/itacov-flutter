@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:itacov/config/style.dart';
 import 'package:sailor/sailor.dart';
-
 import 'core/app.dart';
-
 //void main() => runApp(MyApp());
 Future<void> main() async {
   GetIt.instance.registerSingleton(

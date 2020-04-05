@@ -6,11 +6,10 @@ final ThemeData defaultTheme = ThemeData(
   primaryColor: Colors.indigo,
   textTheme: TextTheme(
     headline: TextStyle(
-        color: Colors.white, fontSize: 40, fontWeight: FontWeight.w600),
+        color: Colors.white, fontSize: 16, fontWeight: FontWeight.w600),
+    subhead: TextStyle(
+        color: Colors.white, fontSize: 12, fontWeight: FontWeight.w600),
   ),
-  buttonTheme: ButtonThemeData(
-      // buttonColor: ColorConfig.PRIMARY,
-      ),
 );
 
 /// NAME       SIZE   WEIGHT   SPACING  2018 NAME
