@@ -1,21 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:itacov/config/style.dart';
-import 'package:itacov/view/do_page.dart';
-import 'package:itacov/view/home_screen.dart';
 import 'package:itacov/view/splash.dart';
+import 'package:sailor/sailor.dart';
 
-void main() => runApp(MyApp());
+import 'core/app.dart';
+
+//void main() => runApp(MyApp());
+Future<void> main() async {
+  GetIt.instance.registerSingleton(
+    App(
+      title: 'ITACOV',
+      router: Sailor(),
+    ),
+  );
+  // wait initializer
+  await App.main.init();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'ITACOV',
+      title: App.main.title,
       debugShowCheckedModeBanner: false,
       theme: defaultTheme,
-      home: Splash(),
+      navigatorKey: App.main.router.navigatorKey,
+      onGenerateRoute: App.main.router.generator(),
     );
   }
 }
-
