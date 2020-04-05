@@ -14,4 +14,3 @@ Sebuah project aplikasi mobile open source made with flutter, di harapkan dapat 
 - [Hanan | Budak Invoice](mailto:hasyrawi@gmail.com)
 
 ## for Home Screen Now not 
-![flutter_02.png](flutter_02.png)
