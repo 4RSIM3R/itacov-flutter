@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itacov/view/do_page.dart';
 import 'package:itacov/view/home_screen.dart';
+import 'package:itacov/view/profile.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _MainPageState extends State<MainPage> {
   final _lisPage = <Widget>[
     HomeScreen(),
     DoPage(),
-    Text('Halaman Profile'),
+    ProfilePage(),
   ];
 
   @override

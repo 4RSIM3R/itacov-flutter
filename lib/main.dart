@@ -4,17 +4,14 @@ import 'package:get_it/get_it.dart';
 import 'package:itacov/config/style.dart';
 import 'package:sailor/sailor.dart';
 import 'core/app.dart';
+
 //void main() => runApp(MyApp());
 Future<void> main() async {
-  GetIt.instance.registerSingleton(
-    App(
-      title: 'ITACOV',
-      router: Sailor(),
-    ),
-  );
-  // wait initializer
+  // mendaftarkan Service Pada Class App Dan
+  GetIt.instance.registerSingleton(App(title: 'ITACOV', router: Sailor()));
+  // Tunggu Iniliasi pada Class App
+  // Default Route Yang Pertama Di Aksess Itu "/",
   await App.main.init();
-
   runApp(MyApp());
 }
 
