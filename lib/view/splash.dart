@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:itacov/constant/constant.dart';
-import 'package:itacov/constant/typhography.dart';
 
 class Splash extends StatelessWidget {
   const Splash({Key key}) : super(key: key);
@@ -27,15 +26,11 @@ class Splash extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  headingTextBold(text: 'ITA', color: white, textAlign: TextAlign.center),
-                  headingTextBold(text: 'COV', color: txtPink, textAlign: TextAlign.center)
+                  Text('ITA', textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline4,),
+                  Text('COV', textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline4.apply(color: txtPink),),
                 ],
               ),
-              headingTextMedium(
-                text: 'Indonesia\nTanggap\nCOVID-19',
-                color: white,
-                textAlign: TextAlign.center,
-              )
+              Text('Indonesia\nTanggap\nCOVID-19', textAlign: TextAlign.center, style: Theme.of(context).textTheme.headline5,),
             ],
           ),
         ),
