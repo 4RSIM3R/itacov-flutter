@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/view/home_screen.dart';
+import 'package:itacov/view/splash.dart';
 // import 'package:itacov/view/splash.dart';
 
 void main() => runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.indigo,
       ),
-      home: HomeScreen(),
+      home: Splash(),
     );
   }
 }
