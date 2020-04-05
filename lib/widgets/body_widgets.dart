@@ -307,9 +307,8 @@ class InputSearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: size.width / 1.4,
+      width: size.width / 1.2,
       child: TextField(
-        showCursor: false,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(20.0),
