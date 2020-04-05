@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/view/do_page.dart';
 import 'package:itacov/view/home_screen.dart';
 
 void main() => runApp(MyApp());
