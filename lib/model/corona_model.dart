@@ -1,1 +1,5 @@
-class CoronaModel {}
+class CoronaModel {
+
+  
+
+}
