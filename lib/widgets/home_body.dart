@@ -406,7 +406,10 @@ class CardKasusIndonesia extends StatelessWidget {
         child: StreamBuilder<Indonesia>(
           stream: indonesiaBloc.subject.stream,
           builder: (context, AsyncSnapshot snapshot) {
-            return buildRowUpdateKasus(snapshot.data);
+            if (snapshot.hasData) return buildRowUpdateKasus(snapshot.data);
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           },
         ),
       ),
