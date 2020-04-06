@@ -1,18 +1,3 @@
-import 'package:flutter/material.dart';
-
-final ThemeData defaultTheme = ThemeData(
-  brightness: Brightness.light,
-  fontFamily: 'Poppins',
-  primaryColor: Colors.indigo,
-  textTheme: TextTheme(
-    headline: TextStyle(
-        color: Colors.white, fontSize: 40, fontWeight: FontWeight.w600),
-  ),
-  buttonTheme: ButtonThemeData(
-      // buttonColor: ColorConfig.PRIMARY,
-      ),
-);
-
 /// NAME       SIZE   WEIGHT   SPACING  2018 NAME
 /// display4   112.0  thin     0.0      headline1
 /// display3   56.0   normal   0.0      headline2
