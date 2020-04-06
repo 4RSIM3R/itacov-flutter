@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:itacov/constant/constant.dart';
 import 'package:itacov/constant/typhography.dart';
 
@@ -10,8 +11,16 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    double paddingTop = mediaQueryData.padding.top;
     return Container(
-      height: 375,
+      height: ScreenUtil().setHeight(730),
+      padding: EdgeInsets.only(
+        top: paddingTop > 0 ? paddingTop + ScreenUtil().setHeight(36) : ScreenUtil().setHeight(48),
+        left: ScreenUtil().setWidth(48),
+        right: ScreenUtil().setWidth(48),
+      ),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [deepBlue, midPurple, midPink],
@@ -21,50 +30,58 @@ class AppWidget extends StatelessWidget {
       ),
       child: Stack(
         children: <Widget>[
-          Positioned(
-            top: 20,
-            left: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    headingTextMedium(
-                      text: 'ITA',
-                      color: white,
-                      textAlign: TextAlign.center,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    headingTextMedium(
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  headingTextMedium(
+                    text: 'ITA',
+                    color: white,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  Expanded(
+                    child: headingTextMedium(
                       text: 'COV',
                       color: txtPink,
-                      textAlign: TextAlign.center,
                       fontWeight: FontWeight.w600,
-                    )
-                  ],
-                ),
-                SizedBox(height: 24.0,),
-                headingTextMedium(text: tagline, color: white, fontWeight: FontWeight.w700)
-              ],
-            ),
+                    ),
+                  ),
+                  Icon(
+                    Icons.notifications,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            ],
           ),
-          Positioned(
-            top: 20,
-            right: 20,
-            child: Icon(
-              Icons.notifications,
-              color: Colors.white,
-              size: 35,
+          Padding(
+            padding: EdgeInsets.only(
+              top: ScreenUtil().setHeight(72),
             ),
-          ),
-          Positioned(
-            top: 64,
-            right: 24,
-            child: Image.asset(
-              image,
-              fit: BoxFit.fill,
+            child: Center(
+              child: Row(
+                children: <Widget>[
+                  SizedBox(
+                    width: ScreenUtil().setWidth(48),
+                  ),
+                  Expanded(
+                    child: headingTextMedium(
+                      text: tagline,
+                      color: white,
+                      fontWeight: FontWeight.w700,
+                      height: 1.1,
+                      fontSize: 64,
+                    ),
+                  ),
+                  Image.asset(
+                    image,
+                    width: ScreenUtil().setWidth(470),
+                    height: ScreenUtil().setWidth(470),
+                  ),
+                ],
+              ),
             ),
           ),
         ],
