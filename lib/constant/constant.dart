@@ -24,3 +24,4 @@ const String splashPage = '/';
 const String mainPage = '/main';
 const String homePage = '/home';
 const String doPage = '/do';
+const String newsPage = '/news';
