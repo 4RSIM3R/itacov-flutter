@@ -14,13 +14,15 @@ Widget headingTextBold(
 Widget headingTextMedium(
     {@required String text,
     @required Color color,
-    TextAlign textAlign = TextAlign.left}) {
+    TextAlign textAlign = TextAlign.left,
+    FontWeight fontWeight = FontWeight.w500
+    }) {
   return Text(
     text,
     style: TextStyle(
       color: color,
       fontSize: 24.0,
-      fontWeight: FontWeight.w500,
+      fontWeight: fontWeight,
     ),
     textAlign: textAlign,
   );

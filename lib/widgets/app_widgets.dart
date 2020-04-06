@@ -3,12 +3,10 @@ import 'package:itacov/constant/constant.dart';
 import 'package:itacov/constant/typhography.dart';
 
 class AppWidget extends StatelessWidget {
+  final String image;
+  final String tagline;
 
-  final String image ;
-
-  const AppWidget({Key key, this.image}) : super(key: key); 
-
-  
+  const AppWidget({Key key, this.image, this.tagline}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +22,37 @@ class AppWidget extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Positioned(
-            top: 34,
-            left: 35,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            top: 20,
+            left: 20,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                headingTextBold(
-                    text: 'ITA', color: white, textAlign: TextAlign.center),
-                headingTextBold(
-                    text: 'COV', color: txtPink, textAlign: TextAlign.center)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    headingTextMedium(
+                      text: 'ITA',
+                      color: white,
+                      textAlign: TextAlign.center,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    headingTextMedium(
+                      text: 'COV',
+                      color: txtPink,
+                      textAlign: TextAlign.center,
+                      fontWeight: FontWeight.w600,
+                    )
+                  ],
+                ),
+                SizedBox(height: 24.0,),
+                headingTextMedium(text: tagline, color: white, fontWeight: FontWeight.w700)
               ],
             ),
           ),
           Positioned(
-            top: 34,
-            right: 35,
+            top: 20,
+            right: 20,
             child: Icon(
               Icons.notifications,
               color: Colors.white,
@@ -46,9 +60,12 @@ class AppWidget extends StatelessWidget {
             ),
           ),
           Positioned(
-            top: 67.59,
-            right: 35.23,
-            child: Image.asset(image),
+            top: 64,
+            right: 24,
+            child: Image.asset(
+              image,
+              fit: BoxFit.fill,
+            ),
           ),
         ],
       ),

@@ -1,29 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:itacov/constant/constant.dart';
+import 'package:itacov/routes/routes.dart';
 
-import 'package:get_it/get_it.dart';
-import 'package:itacov/config/style.dart';
-import 'package:sailor/sailor.dart';
-import 'core/app.dart';
-
-//void main() => runApp(MyApp());
-Future<void> main() async {
-  // mendaftarkan Service Pada Class App Dan
-  GetIt.instance.registerSingleton(App(title: 'ITACOV', router: Sailor()));
-  // Tunggu Iniliasi pada Class App
-  // Default Route Yang Pertama Di Aksess Itu "/",
-  await App.main.init();
-  runApp(MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: App.main.title,
+      title: appName,
       debugShowCheckedModeBanner: false,
-      theme: defaultTheme,
-      navigatorKey: App.main.router.navigatorKey,
-      onGenerateRoute: App.main.router.generator(),
+      initialRoute: splashPage,
+      onGenerateRoute: Routes().onGenerateRoute,
+      theme: ThemeData(
+        brightness: Brightness.light,
+        fontFamily: 'Poppins',
+        primaryColor: Colors.indigo,
+      ),
     );
   }
 }
