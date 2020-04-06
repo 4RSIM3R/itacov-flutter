@@ -5,6 +5,7 @@ import 'package:itacov/view/do_page.dart';
 import 'package:itacov/view/home_screen.dart';
 import 'package:itacov/view/main_page.dart';
 import 'package:itacov/view/splash.dart';
+import 'package:itacov/view/news_page.dart';
 
 class Routes {
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
@@ -20,6 +21,9 @@ class Routes {
         break;
       case doPage:
         return MaterialPageRoute(builder: (_) => DoPage());
+        break;
+      case newsPage:
+        return MaterialPageRoute(builder: (_) => NewsPage());
         break;
       default:
         return MaterialPageRoute(

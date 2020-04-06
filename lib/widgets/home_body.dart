@@ -242,7 +242,7 @@ class BeritaTerbaru extends StatelessWidget {
           ],
         ),
         OutlineButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, '/news'),
           child: Text("Lihat Lainya"),
           color: deepBlue,
           highlightedBorderColor: deepBlue,
