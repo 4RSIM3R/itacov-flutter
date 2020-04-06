@@ -1,28 +1,38 @@
-// Tambahkan Api Yang Akan Di Consume Ke Bloc
 import 'package:dio/dio.dart';
+import 'package:itacov/model/indonesia_model.dart';
+import 'package:itacov/model/provinsi_model.dart';
 
-class CoronaRepo {
-  static String baseUrl = "https://api.kawalcorona.com/";
-  final Dio _dio = Dio();
-  var getProvinsi = "$baseUrl/indonesia/provinsi";
+/// Ini Adalah Class Repo
+/// getDataIndonesia() , 
+/// getProvinsi()
+/// @return Map
 
-  // Ambil Ke Api Secara Global
-  Future<Response> getGlobal() async {
+class RepoApi {
+  static String mainUrl = "https://api.kawalcorona.com";
+  var provinsiUrl = '$mainUrl/indonesia/provinsi';
+  var indonesia = '$mainUrl/indonesia';
+
+  Dio _dio = Dio();
+
+  Future<Indonesia> getDataIndonesia() async {
     try {
-      Response response = await _dio.get(baseUrl);
-      // harus nya Ini Di Ambil Dari Model Data
-      return response.data;
+      Response response = await _dio.get(mainUrl);
+      print(response.data);
+      return Indonesia.fromJson(response.data);
     } catch (e) {
       return e;
     }
   }
 
-  Future<Response> getDatProvinsi() async {
+  /// @return map
+  /// get Data Provinsi
+  Future<Provinsi> getProvinsi() async {
     try {
-      Response response = await _dio.get(getProvinsi);
-      return response.data;
+      Response response = await _dio.get(provinsiUrl);
+      print(response.data);
+      return Provinsi.fromJson(response.data);
     } catch (e) {
-      return e ;
+      return e;
     }
   }
 }
