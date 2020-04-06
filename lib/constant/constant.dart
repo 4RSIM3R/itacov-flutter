@@ -12,7 +12,8 @@ final List<String> listRegion = [
   "DKI Jakarta",
   "Jawa Barat",
   "Jawa Tengah",
-  "Jawa Timur"
+  "Jawa Timur",
+  "Sulawesi Selatan"
 ];
 
 // String

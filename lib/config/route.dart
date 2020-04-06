@@ -1,32 +1,34 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:itacov/constant/constant.dart';
+import 'package:itacov/view/do_page.dart';
+import 'package:itacov/view/home_screen.dart';
 import 'package:itacov/view/main_page.dart';
-import 'package:itacov/view/profile.dart';
 import 'package:itacov/view/splash.dart';
-import 'package:sailor/sailor.dart';
 
-class RouteConfig {
-  static const String SPLASH = '/';
-  static const String MAIN = '/main';
-  static const String PROFILE = "/profile";
-  static void configureMainRoutes(Sailor router) {
-    router.addRoutes([
-      SailorRoute(
-        name: RouteConfig.SPLASH,
-        builder: (context, args, params) {
-          return Splash();
-        },
-      ),
-      SailorRoute(
-        name: RouteConfig.MAIN,
-        builder: (context, args, params) {
-          return MainPage();
-        },
-      ),
-      SailorRoute(
-        name: RouteConfig.PROFILE,
-        builder: (context, args, params) {
-          return ProfilePage();
-        },
-      ),
-    ]);
+class Routes {
+  Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case splashPage:
+        return MaterialPageRoute(builder: (_) => Splash());
+        break;
+      case mainPage:
+        return MaterialPageRoute(builder: (_) => MainPage());
+        break;
+      case homePage:
+        return MaterialPageRoute(builder: (_) => HomeScreen());
+        break;
+      case doPage:
+        return MaterialPageRoute(builder: (_) => DoPage());
+        break;
+      default:
+        return MaterialPageRoute(
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('404 | Not Found'),
+            ),
+          ),
+        );
+    }
   }
 }
