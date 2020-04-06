@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itacov/view/do_page.dart';
 import 'package:itacov/view/home_screen.dart';
-import 'package:itacov/view/profile.dart';
+import 'package:itacov/view/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   @override

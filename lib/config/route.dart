@@ -4,13 +4,13 @@ import 'package:itacov/constant/constant.dart';
 import 'package:itacov/view/do_page.dart';
 import 'package:itacov/view/home_screen.dart';
 import 'package:itacov/view/main_page.dart';
-import 'package:itacov/view/splash.dart';
+import 'package:itacov/view/splash_page.dart';
 
 class Routes {
   Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case splashPage:
-        return MaterialPageRoute(builder: (_) => Splash());
+        return MaterialPageRoute(builder: (_) => SplashPage());
         break;
       case mainPage:
         return MaterialPageRoute(builder: (_) => MainPage());
