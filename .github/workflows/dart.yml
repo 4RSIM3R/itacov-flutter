@@ -1,25 +1,9 @@
-  name: Codecov
-  uses: codecov/codecov-action@v1.0.6
-  with:
-    # User defined upload name. Visible in Codecov UI
-    name: # optional
-    # Repository upload token - get it from codecov.io. Required only for private repositories
-    token: # optional
-    # Path to coverage file to upload
-    file: # optional
-    # Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)
-    flags: # optional
-    # Specify whether or not CI build should fail if Codecov runs into an error during upload
-    fail_ci_if_error: # optional
-
-
 #The name of your workflow.
 name:  Test, build and deploy
 # Trigger the workflow on push or pull request
 on: [push,pull_request]
 #A workflow run is made up of one or more jobs. Jobs run in parallel by default.
 jobs:
-
   test:
     #The type of machine to run the job on. [windows,macos, ubuntu , self-hosted]
     runs-on: macos-latest
@@ -39,10 +23,4 @@ jobs:
       - run: flutter  analyze
       # run  flutter widgets tests  and unit tests
       - run: flutter test --coverage
-      # Upload coverage reports to Codecov
-      # https://github.com/marketplace/actions/codecov
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
-          file: coverage/lcov.info
+      
