@@ -21,6 +21,5 @@ Sebuah project aplikasi mobile open source made with flutter, di harapkan dapat 
 ![screenshoot](flutter_02.png)
 
 ## Link Trello
-![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSlQt2zSsbe6k35hEj24NkSomkX8O3owQLMeg-sT6PTwx-M_wXM&usqp=CAU)
 **[linktrelo](https://trello.com/invite/b/prPaFoco/6b7839d2f902ed0f3620f981d9391675/itacov)**
 
