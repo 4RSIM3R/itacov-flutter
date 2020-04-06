@@ -3,7 +3,7 @@ import 'package:itacov/model/indonesia_model.dart';
 import 'package:itacov/model/provinsi_model.dart';
 
 /// Ini Adalah Class Repo
-/// getDataIndonesia() , 
+/// getDataIndonesia() ,
 /// getProvinsi()
 /// @return Map
 
@@ -15,13 +15,8 @@ class RepoApi {
   Dio _dio = Dio();
 
   Future<Indonesia> getDataIndonesia() async {
-    try {
-      Response response = await _dio.get(mainUrl);
-      print(response.data);
-      return Indonesia.fromJson(response.data);
-    } catch (e) {
-      return e;
-    }
+    Response response = await _dio.get(indonesia);
+    return Indonesia.fromJson(response.data[0]);
   }
 
   /// @return map

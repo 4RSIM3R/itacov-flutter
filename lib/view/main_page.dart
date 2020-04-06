@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itacov/view/do_page.dart';
 import 'package:itacov/view/home_screen.dart';
+import 'package:itacov/view/news_page.dart';
 import 'package:itacov/view/profile.dart';
 
 class MainPage extends StatefulWidget {
@@ -15,6 +16,7 @@ class _MainPageState extends State<MainPage> {
     HomeScreen(),
     DoPage(),
     ProfilePage(),
+    NewsPage(),
   ];
 
   @override
