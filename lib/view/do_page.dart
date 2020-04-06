@@ -17,6 +17,7 @@ class DoPage extends StatelessWidget {
             children: <Widget>[
               AppWidget(
                 image: "assets/images/do.png",
+                tagline: 'Apa yang bisa\nDilakukan ?',
               ),
               BodyWidget(),
             ],
