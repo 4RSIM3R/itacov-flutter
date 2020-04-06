@@ -32,7 +32,7 @@ class NewsList extends StatelessWidget {
               overflow: TextOverflow.clip,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle1
+                  .subtitle
                   .copyWith(fontWeight: FontWeight.bold),
             ),
           ),

@@ -25,7 +25,7 @@ class _NewsPageState extends State<NewsPage> {
         elevation: 0.0,
         title: const Text('Daftar Berita'),
         textTheme: TextTheme(
-          headline6: TextStyle(
+          headline: TextStyle(
             color: Colors.black,
             fontWeight: FontWeight.bold,
             fontSize: 18,
