@@ -2,7 +2,6 @@
 
 Sebuah project aplikasi mobile open source made with flutter, di harapkan dapat membantu untuk mencegah penyebaran Covid-19 
 
-![Status](https://img.shields.io/badge/Project%20Status-Terminate-red?style=for-the-badge)
 ![Test, build and deploy](https://github.com/hananloser/itacov-flutter/workflows/Test,%20build%20and%20deploy/badge.svg)
 ## Mau Ikut ?
 - [Design App](https://www.figma.com/file/zZdSbymxNepJGTjCe9pgP2/itacov?node-id=0%3A876)
