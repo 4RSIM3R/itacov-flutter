@@ -43,7 +43,9 @@ class _HomeBodyState extends State<HomeBody>
                 padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
                 child: SingleChildScrollView(
                   child: Column(
-                    children: <Widget>[_buildRegionInput()],
+                    children: <Widget>[
+                      _buildRegionInput(),
+                    ],
                   ),
                 ),
               );
