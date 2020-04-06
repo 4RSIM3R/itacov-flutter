@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:itacov/constant/constant.dart';
-import 'package:itacov/constant/typhography.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key key}) : super(key: key);
@@ -12,11 +11,11 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
-
   @override
-  void initState() { 
+  void initState() {
     super.initState();
-    Timer(Duration(seconds: 2), () => Navigator.of(context).pushNamed(mainPage));
+    Timer(
+        Duration(seconds: 2), () => Navigator.of(context).pushNamed(mainPage));
   }
 
   @override
@@ -41,13 +40,25 @@ class _SplashState extends State<Splash> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  headingTextBold( text : 'ITA', color: white, ),
-                  headingTextBold( text : 'COV', color: midPink, ),
+                  Text(
+                    'ITA',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.headline,
+                  ),
+                  Text(
+                    'COV',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context)
+                        .textTheme
+                        .headline
+                        .apply(color: txtPink),
+                  ),
                 ],
               ),
-              headingTextMedium(
-                text : 'Indonesia\nTanggap\nCOVID-19',
-                color: white
+              Text(
+                'Indonesia\nTanggap\nCOVID-19',
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headline,
               ),
             ],
           ),

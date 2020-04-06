@@ -15,8 +15,7 @@ Widget headingTextMedium(
     {@required String text,
     @required Color color,
     TextAlign textAlign = TextAlign.left,
-    FontWeight fontWeight = FontWeight.w500
-    }) {
+    FontWeight fontWeight = FontWeight.w500}) {
   return Text(
     text,
     style: TextStyle(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/config/style.dart';
 import 'package:itacov/constant/constant.dart';
 import 'package:itacov/routes/routes.dart';
 
