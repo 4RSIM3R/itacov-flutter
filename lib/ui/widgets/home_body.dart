@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:itacov/core/bloc/dunia_bloc.dart';
 import 'package:itacov/core/bloc/indonesia_bloc.dart';
+import 'package:itacov/core/model/dunia_model.dart';
 import 'package:itacov/core/model/indonesia_model.dart';
 import 'package:itacov/ui/constant/constant.dart';
 
@@ -17,6 +19,9 @@ class _HomeBodyState extends State<HomeBody> {
     super.initState();
     regionController.text = 'Seluruh Indonesia';
     indonesiaBloc..getIndonesia();
+    duniaBloc..getSembuh();
+    duniaBloc..getPositif();
+    duniaBloc..getMeninggal();
   }
 
   @override
@@ -25,7 +30,8 @@ class _HomeBodyState extends State<HomeBody> {
       padding: EdgeInsets.only(top: 234),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
         padding: EdgeInsets.only(top: 26, left: 22, right: 22, bottom: 100),
         child: Column(
           children: <Widget>[
@@ -41,11 +47,15 @@ class _HomeBodyState extends State<HomeBody> {
             ListBerita(),
             SizedBox(height: spacing(3)),
             BeritaDunia(),
+            SizedBox(height: spacing(3)),
+            buildCardKasusDunia(),
           ],
         ),
       ),
     );
   }
+
+  buildCardKasusDunia() => CardKasusDunia();
 
   Widget _buildRegionInput() {
     return Container(
@@ -79,7 +89,8 @@ class CardBerita extends StatelessWidget {
               height: 134,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.vertical(top: Radius.circular(spacing(2))),
+                borderRadius:
+                    BorderRadius.vertical(top: Radius.circular(spacing(2))),
                 border: Border.all(
                   color: Colors.black,
                   width: 1,
@@ -185,7 +196,10 @@ class BeritaTerbaru extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return buildHeader(title: 'Berita Terbaru', desc: 'Diperbaharui 1 jam yang lalu', onPressedAction: () => Navigator.pushNamed(context, '/news'));
+    return buildHeader(
+        title: 'Berita Terbaru',
+        desc: 'Diperbaharui 1 jam yang lalu',
+        onPressedAction: () => Navigator.pushNamed(context, '/news'));
   }
 }
 
@@ -466,4 +480,97 @@ Widget buildHeader({String title, String desc = '', Function onPressedAction}) {
             ),
     ],
   );
+}
+
+class CardKasusDunia extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    var boxDecoration = BoxDecoration(
+      color: white,
+      borderRadius: BorderRadius.all(
+        Radius.circular(18),
+      ),
+      boxShadow: [
+        BoxShadow(
+          offset: Offset(0, 2),
+          color: Color.fromRGBO(0, 0, 2, 0.0643399),
+        ),
+      ],
+    );
+    return Container(
+      width: 330,
+      height: 299,
+      decoration: boxDecoration,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Column(
+            children: <Widget>[
+              SizedBox(height: spacing(3)),
+              StreamBuilder<DuniaModel>(
+                  stream: duniaBloc.datapositif.stream,
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData)
+                      return buildTileKasusDunia(
+                          title: "${snapshot.data.name} Seluruh Dunia",
+                          icon: Icons.add,
+                          number: snapshot.data.value.toString(),
+                          color: Colors.orange);
+                    return Center(child: CircularProgressIndicator());
+                  }),
+              StreamBuilder<DuniaModel>(
+                  stream: duniaBloc.datasembuh.stream,
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData)
+                      return buildTileKasusDunia(
+                          title: "${snapshot.data.name} Seluruh Dunia",
+                          icon: Icons.healing,
+                          number: snapshot.data.value.toString(),
+                          color: Colors.green);
+                    return Center(child: CircularProgressIndicator());
+                  }),
+              StreamBuilder<DuniaModel>(
+                  stream: duniaBloc.datamati.stream,
+                  builder: (context, AsyncSnapshot snapshot) {
+                    if (snapshot.hasData)
+                      return buildTileKasusDunia(
+                          title: "${snapshot.data.name} Seluruh Dunia",
+                          icon: Icons.close,
+                          number: '3434',
+                          color: Colors.red);
+                    return Center(child: CircularProgressIndicator());
+                  }),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget buildTileKasusDunia({title, icon, number, Color color}) {
+    return Row(
+      children: <Widget>[
+        Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: Icon(icon, color: color, size: 30),
+            ),
+            Column(
+              children: <Widget>[
+                Text(title, style: TextStyle(color: color, fontSize: 12)),
+                Text(number,
+                    style: TextStyle(
+                        color: color,
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold)),
+              ],
+            )
+          ],
+        ),
+      ],
+    );
+  }
 }

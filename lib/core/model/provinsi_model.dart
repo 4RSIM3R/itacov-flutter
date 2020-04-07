@@ -42,26 +42,6 @@ class Attributes {
     this.kasusMeninggal,
   });
 
-  /*Attributes.fromJson(Map<String, dynamic> json) {
-    fID = json['FID'];
-    kodeProvinsi = json['Kode_Provi'];
-    provinsi = json['Provinsi'];
-    kasusPositif = json['Kasus_Posi'];
-    kasusSembuh = json['Kasus_Semb'];
-    kasusMeninggal = json['Kasus_Meni'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['FID'] = this.fID;
-    data['Kode_Provi'] = this.kodeProvinsi;
-    data['Provinsi'] = this.provinsi;
-    data['Kasus_Posi'] = this.kasusPositif;
-    data['Kasus_Semb'] = this.kasusSembuh;
-    data['Kasus_Meni'] = this.kasusMeninggal;
-    return data;
-  }*/
-
   factory Attributes.fromJson(Map<String, dynamic> json) => _$AttributesFromJson(json);
 
   Map<String, dynamic> toJson() => _$AttributesToJson(this);
