@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
               tagline: 'Lawan\nCOVID-19',
               imageTop: 120,
             ),
-            HomeBody()
+            SingleChildScrollView(child: HomeBody())
           ],
         ),
       ),

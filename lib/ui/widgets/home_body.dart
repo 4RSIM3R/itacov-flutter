@@ -8,8 +8,7 @@ class HomeBody extends StatefulWidget {
   _HomeBodyState createState() => _HomeBodyState();
 }
 
-class _HomeBodyState extends State<HomeBody>
-    with SingleTickerProviderStateMixin {
+class _HomeBodyState extends State<HomeBody> {
   double initialPercentage = 0.65;
   TextEditingController regionController = TextEditingController();
 
@@ -22,51 +21,29 @@ class _HomeBodyState extends State<HomeBody>
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: DraggableScrollableSheet(
-        maxChildSize: 1.0,
-        initialChildSize: initialPercentage,
-        minChildSize: initialPercentage,
-        builder: (BuildContext context, ScrollController scrollController) {
-          return AnimatedBuilder(
-            animation: scrollController,
-            builder: (context, child) {
-              double percentage = initialPercentage;
-              if (scrollController.hasClients) {
-                percentage = (scrollController.position.viewportDimension) /
-                    (MediaQuery.of(context).size.height);
-              }
-              return AnimatedContainer(
-                duration: Duration(milliseconds: 250),
-                decoration: BoxDecoration(
-                  color: white,
-                  borderRadius:
-                      BorderRadius.circular(percentage > 0.8 ? 0.0 : 32.0),
-                ),
-                padding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: <Widget>[
-                      _buildRegionInput(),
-                      SizedBox(height: spacing(3)),
-                      UpdateKasus(),
-                      SizedBox(height: spacing(3)),
-                      CardKasusIndonesia(),
-                      SizedBox(height: spacing(3)),
-                      PetaPersebaran(),
-                      SizedBox(height: spacing(3)),
-                      BeritaTerbaru(),
-                      SizedBox(height: spacing(3)),
-                      ListBerita(),
-                      SizedBox(height: spacing(3)),
-                      BeritaDunia()
-                    ],
-                  ),
-                ),
-              );
-            },
-          );
-        },
+    return Padding(
+      padding: EdgeInsets.only(top: 234),
+      child: Container(
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
+        padding: EdgeInsets.only(top: 26, left: 22, right: 22, bottom: 100),
+        child: Column(
+          children: <Widget>[
+            _buildRegionInput(),
+            UpdateKasus(),
+            SizedBox(height: spacing(3)),
+            CardKasusIndonesia(),
+            SizedBox(height: spacing(3)),
+            PetaPersebaran(),
+            SizedBox(height: spacing(3)),
+            BeritaTerbaru(),
+            SizedBox(height: spacing(3)),
+            ListBerita(),
+            SizedBox(height: spacing(3)),
+            BeritaDunia(),
+          ],
+        ),
       ),
     );
   }
