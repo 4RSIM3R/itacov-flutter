@@ -516,7 +516,7 @@ class CardKasusDunia extends StatelessWidget {
                           icon: Icons.add,
                           number: snapshot.data.value.toString(),
                           color: Colors.orange);
-                    return Center(child: CircularProgressIndicator());
+                    return Container();
                   }),
               StreamBuilder<DuniaModel>(
                   stream: duniaBloc.datasembuh.stream,
@@ -538,7 +538,7 @@ class CardKasusDunia extends StatelessWidget {
                           icon: Icons.close,
                           number: '3434',
                           color: Colors.red);
-                    return Center(child: CircularProgressIndicator());
+                    return Container();
                   }),
             ],
           )
