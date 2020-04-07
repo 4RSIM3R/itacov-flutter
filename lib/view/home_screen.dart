@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
             AppWidget(
               image: "assets/images/main.png",
               tagline: 'Lawan\nCOVID-19',
+              imageTop: 120,
             ),
             HomeBody()
           ],
