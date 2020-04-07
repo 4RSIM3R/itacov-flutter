@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/bloc/indonesia_bloc.dart';
-import 'package:itacov/constant/constant.dart';
-import 'package:itacov/model/indonesia_model.dart';
+import 'package:itacov/core/bloc/indonesia_bloc.dart';
+import 'package:itacov/core/model/indonesia_model.dart';
+import 'package:itacov/ui/constant/constant.dart';
 
 class HomeBody extends StatefulWidget {
   @override
