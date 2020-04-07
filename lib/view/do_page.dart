@@ -11,17 +11,15 @@ class DoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              AppWidget(
-                image: "assets/images/do.png",
-                tagline: 'Apa yang bisa\nDilakukan ?',
-              ),
-              BodyWidget(),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: <Widget>[
+            AppWidget(
+              image: "assets/images/do.png",
+              tagline: 'Apa yang bisa\nDilakukan ?',
+            ),
+            BodyWidget(),
+          ],
         ),
       ),
     );

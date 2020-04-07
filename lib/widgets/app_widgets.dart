@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:itacov/constant/constant.dart';
 import 'package:itacov/constant/typhography.dart';
 
@@ -10,6 +11,9 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ScreenUtil.init(context);
+    MediaQueryData mediaQueryData = MediaQuery.of(context);
+    double paddingTop = mediaQueryData.padding.top;
     return Container(
       height: 375,
       decoration: BoxDecoration(
@@ -19,55 +23,59 @@ class AppWidget extends StatelessWidget {
           end: Alignment(1.0, 1.0),
         ),
       ),
-      child: Stack(
-        children: <Widget>[
-          Positioned(
-            top: 20,
-            left: 20,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    headingTextMedium(
-                      text: 'ITA',
-                      color: white,
-                      textAlign: TextAlign.center,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    headingTextMedium(
-                      text: 'COV',
-                      color: txtPink,
-                      textAlign: TextAlign.center,
-                      fontWeight: FontWeight.w600,
-                    )
-                  ],
-                ),
-                SizedBox(height: 24.0,),
-                headingTextMedium(text: tagline, color: white, fontWeight: FontWeight.w700)
-              ],
+      child: Padding(
+        padding: EdgeInsets.only(
+          top: paddingTop > 0 ? paddingTop + ScreenUtil().setHeight(24) : ScreenUtil().setHeight(48),
+        ),
+        child: Stack(
+          children: <Widget>[
+            Positioned(
+              top: 0,
+              left: 20,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      headingTextMedium(
+                        text: 'ITA',
+                        color: white,
+                        textAlign: TextAlign.center,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      headingTextMedium(
+                        text: 'COV',
+                        color: txtPink,
+                        textAlign: TextAlign.center,
+                        fontWeight: FontWeight.w600,
+                      )
+                    ],
+                  ),
+                  SizedBox(height: 24.0,),
+                  headingTextMedium(text: tagline, color: white, fontWeight: FontWeight.w700)
+                ],
+              ),
             ),
-          ),
-          Positioned(
-            top: 20,
-            right: 20,
-            child: Icon(
-              Icons.notifications,
-              color: Colors.white,
-              size: 35,
+            Positioned(
+              top: 0,
+              right: 20,
+              child: Icon(
+                Icons.notifications,
+                color: Colors.white,
+              ),
             ),
-          ),
-          Positioned(
-            top: 64,
-            right: 24,
-            child: Image.asset(
-              image,
-              fit: BoxFit.fill,
+            Positioned(
+              top: 64,
+              right: 24,
+              child: Image.asset(
+                image,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
