@@ -5,10 +5,10 @@ import 'package:rxdart/rxdart.dart';
 class ProvinsiBloc {
   final RepoApi _repoApi = RepoApi();
 
-  final BehaviorSubject<Provinsi> _subject = BehaviorSubject<Provinsi>();
+  final BehaviorSubject<ProvinsiModel> _subject = BehaviorSubject<ProvinsiModel>();
 
   getProvinsi() async {
-    Provinsi response = await _repoApi.getProvinsi();
+    ProvinsiModel response = await _repoApi.getProvinsi();
     _subject.add(response);
   }
 
@@ -16,7 +16,7 @@ class ProvinsiBloc {
     _subject.close();
   }
 
-  BehaviorSubject<Provinsi> get subject => _subject;
+  BehaviorSubject<ProvinsiModel> get subject => _subject;
 }
 
 final provinsiBloc = ProvinsiBloc();

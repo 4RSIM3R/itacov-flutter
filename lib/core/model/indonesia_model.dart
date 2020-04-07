@@ -1,24 +1,28 @@
-class Indonesia {
+import 'package:json_annotation/json_annotation.dart';
+
+part 'indonesia_model.g.dart';
+
+@JsonSerializable()
+class IndonesiaModel {
   String name;
   String positif;
   String sembuh;
   String meninggal;
 
-  Indonesia({this.name, this.positif, this.sembuh, this.meninggal});
+  IndonesiaModel({
+    this.name,
+    this.positif,
+    this.sembuh,
+    this.meninggal,
+  });
 
-  Indonesia.fromJson(Map<String, dynamic> json) {
-    name = json['name'];
-    positif = json['positif'];
-    sembuh = json['sembuh'];
-    meninggal = json['meninggal'];
-  }
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['name'] = this.name;
-    data['positif'] = this.positif;
-    data['sembuh'] = this.sembuh;
-    data['meninggal'] = this.meninggal;
-    return data;
+  factory IndonesiaModel.fromJson(Map<String, dynamic> json) => _$IndonesiaModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$IndonesiaModelToJson(this);
+
+  @override
+  String toString() {
+    return 'IndonesiaModel{name: $name, positif: $positif, sembuh: $sembuh, meninggal: $meninggal}';
   }
 }
