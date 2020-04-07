@@ -13,6 +13,7 @@ Sebuah project aplikasi mobile open source made with flutter, di harapkan dapat 
 - [Hanan | Budak Invoice](mailto:hasyrawi@gmail.com)
 - [Roma]
 - [Steven] 
+- [Yudi Setiawan | CoderJava](mailto:kolonel.yudisetiawan@gmail.com)
 ## for Home Screen 
 ![screenshoot](flutter_01.png)
 
