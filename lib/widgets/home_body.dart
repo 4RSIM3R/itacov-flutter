@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:itacov/bloc/indonesia_bloc.dart';
 import 'package:itacov/constant/constant.dart';
-import 'package:itacov/constant/typography.dart';
 import 'package:itacov/model/indonesia_model.dart';
 
 class HomeBody extends StatefulWidget {
