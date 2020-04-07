@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:itacov/bloc/indonesia_bloc.dart';
 import 'package:itacov/constant/constant.dart';
-import 'package:itacov/constant/typhography.dart';
+import 'package:itacov/constant/typography.dart';
 import 'package:itacov/model/indonesia_model.dart';
 
 class HomeBody extends StatefulWidget {
@@ -49,24 +49,17 @@ class _HomeBodyState extends State<HomeBody>
                   child: Column(
                     children: <Widget>[
                       _buildRegionInput(),
-                      SizedBox(height: 20),
+                      SizedBox(height: spacing(3)),
                       UpdateKasus(),
-                      SizedBox(height: 20),
+                      SizedBox(height: spacing(3)),
                       CardKasusIndonesia(),
-                      SizedBox(height: 20),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          headingTextMedium(
-                              text: "Peta Persebaran", color: Colors.grey),
-                        ],
-                      ),
+                      SizedBox(height: spacing(3)),
                       PetaPersebaran(),
-                      SizedBox(height: 20),
+                      SizedBox(height: spacing(3)),
                       BeritaTerbaru(),
-                      SizedBox(height: 20),
+                      SizedBox(height: spacing(3)),
                       ListBerita(),
-                      SizedBox(height: 20),
+                      SizedBox(height: spacing(3)),
                       BeritaDunia()
                     ],
                   ),
@@ -111,7 +104,8 @@ class CardBerita extends StatelessWidget {
               height: 134,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
+                borderRadius:
+                    BorderRadius.vertical(top: Radius.circular(spacing(2))),
                 border: Border.all(
                   color: Colors.black,
                   width: 1,
@@ -217,41 +211,10 @@ class BeritaTerbaru extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Berita Terbaru",
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w600,
-                fontFamily: "Poppins",
-                fontSize: 16,
-              ),
-            ),
-            SizedBox(height: 3),
-            Text(
-              "Diperbaharui 1 Jam yang lalu",
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w600,
-                fontFamily: "Poppins",
-                fontSize: 12,
-              ),
-            ),
-          ],
-        ),
-        OutlineButton(
-          onPressed: () => Navigator.pushNamed(context, '/news'),
-          child: Text("Lihat Lainya"),
-          color: deepBlue,
-          highlightedBorderColor: deepBlue,
-        )
-      ],
-    );
+    return buildHeader(
+        title: 'Berita Terbaru',
+        desc: 'Diperbaharui 1 jam yang lalu',
+        onPressedAction: () => Navigator.pushNamed(context, '/news'));
   }
 }
 
@@ -262,125 +225,126 @@ class PetaPersebaran extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 315,
-      width: 330,
-      decoration: BoxDecoration(
-        color: white,
-        boxShadow: [
-          BoxShadow(
-            offset: Offset(0, 2),
-            blurRadius: 10,
-            color: Color.fromRGBO(0, 0, 2, 0.0643399),
+    final ThemeData theme = Theme.of(context);
+
+    return Column(
+      children: <Widget>[
+        Align(
+          alignment: Alignment.centerLeft,
+          child: buildHeader(title: 'Peta Persebaran'),
+        ),
+        SizedBox(height: spacing(0.5)),
+        Container(
+          height: 315,
+          width: 330,
+          decoration: BoxDecoration(
+            color: white,
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0, 2),
+                blurRadius: 10,
+                color: Color.fromRGBO(0, 0, 2, 0.0643399),
+              ),
+            ],
+            borderRadius: BorderRadius.circular(18),
           ),
-        ],
-        borderRadius: BorderRadius.circular(18),
-      ),
-      child: Column(
-        children: <Widget>[
-          SizedBox(
-            height: 10,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
+          child: Column(
             children: <Widget>[
-              Container(
-                height: 206,
-                width: 319,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16.0),
-                    image: DecorationImage(
-                        image: AssetImage("assets/images/Bitmap.png"))),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Align(
-                    alignment: Alignment.bottomRight,
-                    child: Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(26.0),
-                          color: white),
-                      child: Icon(
-                        Icons.arrow_right,
-                        size: 35,
-                        color: Colors.grey,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Container(
+                    height: 206,
+                    width: 319,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16.0),
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/Bitmap.png"))),
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Container(
+                          width: 40,
+                          height: 40,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(26.0),
+                              color: white),
+                          child: Icon(
+                            Icons.arrow_right,
+                            size: 35,
+                            color: Colors.grey,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-              )
-            ],
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Text(
-                    '893',
-                    style: TextStyle(
-                      fontSize: 36,
-                      color: Color(0xffd9D000),
-                      fontWeight: FontWeight.w900,
-                    ),
-                  ),
-                  Text(
-                    'Kasus baru',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w900,
-                        color: Color(0xffd9D000)),
-                  ),
+                  )
                 ],
               ),
-              Column(
+              SizedBox(height: spacing(1)),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: <Widget>[
-                  Text(
-                    '478',
-                    style: TextStyle(
-                        fontSize: 36,
-                        color: midPurple,
-                        fontWeight: FontWeight.w900),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        '+893',
+                        style: theme.textTheme.display1.copyWith(
+                            color: Colors.orange, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        'Kasus baru',
+                        style: theme.textTheme.body1
+                            .copyWith(color: Colors.orange),
+                      ),
+                    ],
                   ),
-                  Text(
-                    'PDP',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w900,
-                        color: midPurple),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        '478',
+                        style: theme.textTheme.display1.copyWith(
+                          color: Colors.purple[300],
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'PDP',
+                        style: theme.textTheme.body1
+                            .copyWith(color: Colors.purple[300]),
+                      ),
+                    ],
                   ),
-                ],
-              ),
-              Column(
-                children: <Widget>[
-                  Text(
-                    '3703',
-                    style: TextStyle(
-                        fontSize: 36,
-                        color: deepBlue,
-                        fontWeight: FontWeight.w900),
-                  ),
-                  Text(
-                    'ODP',
-                    style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.w900,
-                        color: deepBlue),
+                  Column(
+                    children: <Widget>[
+                      Text(
+                        '3703',
+                        style: theme.textTheme.display1.copyWith(
+                          color: Colors.lightBlue,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      Text(
+                        'ODP',
+                        style: theme.textTheme.body1
+                            .copyWith(color: Colors.lightBlue),
+                      ),
+                    ],
                   ),
                 ],
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
 
 class CardKasusIndonesia extends StatelessWidget {
   final IconData icon;
+
   const CardKasusIndonesia({Key key, this.icon}) : super(key: key);
 
   @override
@@ -422,31 +386,22 @@ class CardKasusIndonesia extends StatelessWidget {
       children: <Widget>[
         Column(
           children: <Widget>[
-            buildIconHeader(icon: Icons.add, color: Color(0xffd9D000)),
-            Text(
-              data.positif.toString(),
-              style: TextStyle(fontSize: 36, color: Color(0xffd9D000)),
-            ),
+            buildIconHeader(icon: Icons.add, color: Colors.orange),
+            buildNumberCount(value: data.positif, color: Colors.orange),
             Text('Kasus Positif'),
           ],
         ),
         Column(
           children: <Widget>[
             buildIconHeader(icon: Icons.healing, color: Colors.green),
-            Text(
-              data.sembuh.toString(),
-              style: TextStyle(fontSize: 36, color: Colors.green),
-            ),
+            buildNumberCount(value: data.sembuh, color: Colors.green),
             Text('Sembuh'),
           ],
         ),
         Column(
           children: <Widget>[
-            buildIconHeader(icon: Icons.error, color: Colors.red),
-            Text(
-              data.meninggal.toString(),
-              style: TextStyle(fontSize: 36, color: Colors.red),
-            ),
+            buildIconHeader(icon: Icons.close, color: Colors.red),
+            buildNumberCount(value: data.meninggal, color: Colors.red),
             Text('Meninggal'),
           ],
         ),
@@ -462,57 +417,82 @@ class UpdateKasus extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Text(
-              "Update Kasus COVID-19",
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w600,
-                fontFamily: "Poppins",
-                fontSize: 16,
-              ),
-            ),
-            SizedBox(height: 3),
-            Text(
-              "Diperbaharui 3 Jam yang lalu",
-              style: TextStyle(
-                color: Colors.grey,
-                fontWeight: FontWeight.w600,
-                fontFamily: "Poppins",
-                fontSize: 12,
-              ),
-            ),
-          ],
-        ),
-        OutlineButton(
-          onPressed: () {},
-          child: Text("Detail"),
-          color: deepBlue,
-          highlightedBorderColor: deepBlue,
-        )
-      ],
+    return buildHeader(
+      title: "Update Kasus COVID-19",
+      desc: "Diperbaharui 3 Jam yang lalu",
+      onPressedAction: () {},
     );
   }
 }
 
 Container buildIconHeader({icon, color}) {
   return Container(
-    width: 30,
-    height: 30,
+    width: 26,
+    height: 26,
     decoration: BoxDecoration(
-      color: color,
+      color: Color.alphaBlend(Colors.white70, color),
       borderRadius: BorderRadius.circular(26.0),
     ),
     child: Center(
       child: Icon(
         icon,
-        color: white,
+        size: 24.0,
+        color: color,
       ),
     ),
+  );
+}
+
+Text buildNumberCount({String value, Color color}) {
+  return Text(
+    value,
+    style: TextStyle(
+      fontSize: 36,
+      fontWeight: FontWeight.bold,
+      color: color,
+    ),
+  );
+}
+
+Widget buildHeader({String title, String desc = '', Function onPressedAction}) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    children: <Widget>[
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            title,
+            style: TextStyle(
+              color: Colors.black87,
+              fontWeight: FontWeight.w600,
+              fontFamily: "Poppins",
+              fontSize: 16,
+            ),
+          ),
+          SizedBox(height: spacing(0.5)),
+          Text(
+            desc,
+            style: TextStyle(
+              color: Colors.grey,
+              fontFamily: "Poppins",
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
+      onPressedAction == null
+          ? Container()
+          : OutlineButton(
+              onPressed: onPressedAction,
+              child: Text("Lihat Detail"),
+              color: deepBlue,
+              textColor: Colors.purple,
+              highlightedBorderColor: deepBlue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0),
+              ),
+            ),
+    ],
   );
 }

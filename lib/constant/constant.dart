@@ -25,3 +25,6 @@ const String mainPage = '/main';
 const String homePage = '/home';
 const String doPage = '/do';
 const String newsPage = '/news';
+
+// default spacing
+double spacing(value) => value * 8.0;
