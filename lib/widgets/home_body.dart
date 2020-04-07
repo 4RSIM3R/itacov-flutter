@@ -21,12 +21,6 @@ class _HomeBodyState extends State<HomeBody>
   }
 
   @override
-  void dispose() {
-    indonesiaBloc.subject.close();
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return SizedBox.expand(
       child: DraggableScrollableSheet(
