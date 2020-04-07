@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/constant/constant.dart';
-import 'package:itacov/widgets/app_widgets.dart';
-import 'package:itacov/widgets/home_body.dart';
+import 'package:itacov/ui/constant/constant.dart';
+import 'package:itacov/ui/widgets/app_widgets.dart';
+import 'package:itacov/ui/widgets/home_body.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomePage extends StatefulWidget {
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

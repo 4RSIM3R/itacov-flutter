@@ -1,6 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:itacov/model/indonesia_model.dart';
-import 'package:itacov/model/provinsi_model.dart';
+import 'package:itacov/core/model/indonesia_model.dart';
+import 'package:itacov/core/model/provinsi_model.dart';
 
 /// Ini Adalah Class Repo
 /// getDataIndonesia() ,

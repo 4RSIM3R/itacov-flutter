@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:itacov/widgets/app_widgets.dart';
-import 'package:itacov/widgets/card_widget.dart';
+import 'package:itacov/ui/widgets/app_widgets.dart';
+import 'package:itacov/ui/widgets/card_widget.dart';
 
 import '../constant/constant.dart';
 

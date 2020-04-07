@@ -4,6 +4,7 @@ created by: stefensuhat at 06 Apr 2020 20.56
 */
 
 import 'package:flutter/material.dart';
+import 'package:itacov/ui/shared/images.dart';
 
 class NewsList extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class NewsList extends StatelessWidget {
               height: 100,
               color: Colors.grey,
               child: Image.asset(
-                'assets/images/bg.png',
+                backgroundImage,
                 width: 100,
                 fit: BoxFit.cover,
               ),
