@@ -4,7 +4,7 @@ created by: stefensuhat at 06 Apr 2020 20.42
 */
 
 import 'package:flutter/material.dart';
-import 'package:itacov/widgets/news_list.dart';
+import 'package:itacov/ui/widgets/news_list.dart';
 
 class NewsPage extends StatefulWidget {
   @override

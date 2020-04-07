@@ -1,5 +1,5 @@
-import 'package:itacov/model/provinsi_model.dart';
-import 'package:itacov/repo/corona_repo.dart';
+import 'package:itacov/core/model/provinsi_model.dart';
+import 'package:itacov/core/repository/corona_repo.dart';
 import 'package:rxdart/rxdart.dart';
 
 class ProvinsiBloc {
