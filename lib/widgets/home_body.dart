@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:itacov/bloc/indonesia_bloc.dart';
 import 'package:itacov/constant/constant.dart';
 import 'package:itacov/constant/typhography.dart';
+import 'package:itacov/model/indonesia_model.dart';
 
 class HomeBody extends StatefulWidget {
   @override
@@ -16,6 +18,7 @@ class _HomeBodyState extends State<HomeBody>
   void initState() {
     super.initState();
     regionController.text = 'Seluruh Indonesia';
+    indonesiaBloc..getIndonesia();
   }
 
   @override
@@ -242,7 +245,7 @@ class BeritaTerbaru extends StatelessWidget {
           ],
         ),
         OutlineButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pushNamed(context, '/news'),
           child: Text("Lihat Lainya"),
           color: deepBlue,
           highlightedBorderColor: deepBlue,
@@ -400,42 +403,54 @@ class CardKasusIndonesia extends StatelessWidget {
       decoration: boxDecoration,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Column(
-              children: <Widget>[
-                buildIconHeader(icon: Icons.add, color: Color(0xffd9D000)),
-                Text(
-                  '893',
-                  style: TextStyle(fontSize: 36, color: Color(0xffd9D000)),
-                ),
-                Text('Kasus Positif'),
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                buildIconHeader(icon: Icons.healing, color: Colors.green),
-                Text(
-                  '35',
-                  style: TextStyle(fontSize: 36, color: Colors.green),
-                ),
-                Text('Sembuh'),
-              ],
-            ),
-            Column(
-              children: <Widget>[
-                buildIconHeader(icon: Icons.error, color: Colors.red),
-                Text(
-                  '78',
-                  style: TextStyle(fontSize: 36, color: Colors.red),
-                ),
-                Text('Meninggal'),
-              ],
-            ),
-          ],
+        child: StreamBuilder<Indonesia>(
+          stream: indonesiaBloc.subject.stream,
+          builder: (context, AsyncSnapshot snapshot) {
+            if (snapshot.hasData) return buildRowUpdateKasus(snapshot.data);
+            return Center(
+              child: CircularProgressIndicator(),
+            );
+          },
         ),
       ),
+    );
+  }
+
+  Row buildRowUpdateKasus(Indonesia data) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Column(
+          children: <Widget>[
+            buildIconHeader(icon: Icons.add, color: Color(0xffd9D000)),
+            Text(
+              data.positif.toString(),
+              style: TextStyle(fontSize: 36, color: Color(0xffd9D000)),
+            ),
+            Text('Kasus Positif'),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            buildIconHeader(icon: Icons.healing, color: Colors.green),
+            Text(
+              data.sembuh.toString(),
+              style: TextStyle(fontSize: 36, color: Colors.green),
+            ),
+            Text('Sembuh'),
+          ],
+        ),
+        Column(
+          children: <Widget>[
+            buildIconHeader(icon: Icons.error, color: Colors.red),
+            Text(
+              data.meninggal.toString(),
+              style: TextStyle(fontSize: 36, color: Colors.red),
+            ),
+            Text('Meninggal'),
+          ],
+        ),
+      ],
     );
   }
 }
