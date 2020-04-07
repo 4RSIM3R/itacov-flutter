@@ -14,18 +14,18 @@ class RepoApi {
 
   Dio _dio = Dio();
 
-  Future<Indonesia> getDataIndonesia() async {
+  Future<IndonesiaModel> getDataIndonesia() async {
     Response response = await _dio.get(indonesia);
-    return Indonesia.fromJson(response.data[0]);
+    return IndonesiaModel.fromJson(response.data[0]);
   }
 
   /// @return map
   /// get Data Provinsi
-  Future<Provinsi> getProvinsi() async {
+  Future<ProvinsiModel> getProvinsi() async {
     try {
       Response response = await _dio.get(provinsiUrl);
       print(response.data);
-      return Provinsi.fromJson(response.data);
+      return ProvinsiModel.fromJson(response.data);
     } catch (e) {
       return e;
     }

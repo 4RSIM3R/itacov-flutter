@@ -1,56 +1,73 @@
-class Provinsi {
+import 'package:json_annotation/json_annotation.dart';
+
+part 'provinsi_model.g.dart';
+
+@JsonSerializable()
+class ProvinsiModel {
   Attributes attributes;
 
-  Provinsi({this.attributes});
+  ProvinsiModel({this.attributes});
 
-  Provinsi.fromJson(Map<String, dynamic> json) {
-    attributes = json['attributes'] != null
-        ? new Attributes.fromJson(json['attributes'])
-        : null;
-  }
+  factory ProvinsiModel.fromJson(Map<String, dynamic> json) => _$ProvinsiModelFromJson(json);
 
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    if (this.attributes != null) {
-      data['attributes'] = this.attributes.toJson();
-    }
-    return data;
+  Map<String, dynamic> toJson() => _$ProvinsiModelToJson(this);
+
+  @override
+  String toString() {
+    return 'ProvinsiModel{attributes: $attributes}';
   }
 }
 
+@JsonSerializable()
 class Attributes {
+  @JsonKey(name: 'FID')
   int fID;
-  int kodeProvi;
+  @JsonKey(name: 'Kode_Provi')
+  int kodeProvinsi;
+  @JsonKey(name: 'Provinsi')
   String provinsi;
-  int kasusPosi;
-  int kasusSemb;
-  int kasusMeni;
+  @JsonKey(name: 'Kasus_Posi')
+  int kasusPositif;
+  @JsonKey(name: "Kasus_Semb")
+  int kasusSembuh;
+  @JsonKey(name: 'Kasus_Meni')
+  int kasusMeninggal;
 
-  Attributes(
-      {this.fID,
-      this.kodeProvi,
-      this.provinsi,
-      this.kasusPosi,
-      this.kasusSemb,
-      this.kasusMeni});
+  Attributes({
+    this.fID,
+    this.kodeProvinsi,
+    this.provinsi,
+    this.kasusPositif,
+    this.kasusSembuh,
+    this.kasusMeninggal,
+  });
 
-  Attributes.fromJson(Map<String, dynamic> json) {
+  /*Attributes.fromJson(Map<String, dynamic> json) {
     fID = json['FID'];
-    kodeProvi = json['Kode_Provi'];
+    kodeProvinsi = json['Kode_Provi'];
     provinsi = json['Provinsi'];
-    kasusPosi = json['Kasus_Posi'];
-    kasusSemb = json['Kasus_Semb'];
-    kasusMeni = json['Kasus_Meni'];
+    kasusPositif = json['Kasus_Posi'];
+    kasusSembuh = json['Kasus_Semb'];
+    kasusMeninggal = json['Kasus_Meni'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['FID'] = this.fID;
-    data['Kode_Provi'] = this.kodeProvi;
+    data['Kode_Provi'] = this.kodeProvinsi;
     data['Provinsi'] = this.provinsi;
-    data['Kasus_Posi'] = this.kasusPosi;
-    data['Kasus_Semb'] = this.kasusSemb;
-    data['Kasus_Meni'] = this.kasusMeni;
+    data['Kasus_Posi'] = this.kasusPositif;
+    data['Kasus_Semb'] = this.kasusSembuh;
+    data['Kasus_Meni'] = this.kasusMeninggal;
     return data;
+  }*/
+
+  factory Attributes.fromJson(Map<String, dynamic> json) => _$AttributesFromJson(json);
+
+  Map<String, dynamic> toJson() => _$AttributesToJson(this);
+
+  @override
+  String toString() {
+    return 'Attributes{fID: $fID, kodeProvinsi: $kodeProvinsi, provinsi: $provinsi, kasusPositif: $kasusPositif, kasusSembuh: $kasusSembuh, kasusMeninggal: $kasusMeninggal}';
   }
 }

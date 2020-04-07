@@ -343,7 +343,7 @@ class CardKasusIndonesia extends StatelessWidget {
       decoration: boxDecoration,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        child: StreamBuilder<Indonesia>(
+        child: StreamBuilder<IndonesiaModel>(
           stream: indonesiaBloc.subject.stream,
           builder: (context, AsyncSnapshot snapshot) {
             if (snapshot.hasData) return buildRowUpdateKasus(snapshot.data);
@@ -356,7 +356,7 @@ class CardKasusIndonesia extends StatelessWidget {
     );
   }
 
-  Row buildRowUpdateKasus(Indonesia data) {
+  Row buildRowUpdateKasus(IndonesiaModel data) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
