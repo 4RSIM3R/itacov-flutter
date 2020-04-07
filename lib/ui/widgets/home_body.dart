@@ -25,8 +25,7 @@ class _HomeBodyState extends State<HomeBody> {
       padding: EdgeInsets.only(top: 234),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
         padding: EdgeInsets.only(top: 26, left: 22, right: 22, bottom: 100),
         child: Column(
           children: <Widget>[
@@ -80,8 +79,7 @@ class CardBerita extends StatelessWidget {
               height: 134,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.vertical(top: Radius.circular(spacing(2))),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(spacing(2))),
                 border: Border.all(
                   color: Colors.black,
                   width: 1,
@@ -187,10 +185,7 @@ class BeritaTerbaru extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return buildHeader(
-        title: 'Berita Terbaru',
-        desc: 'Diperbaharui 1 jam yang lalu',
-        onPressedAction: () => Navigator.pushNamed(context, '/news'));
+    return buildHeader(title: 'Berita Terbaru', desc: 'Diperbaharui 1 jam yang lalu', onPressedAction: () => Navigator.pushNamed(context, '/news'));
   }
 }
 
@@ -202,113 +197,113 @@ class PetaPersebaran extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
-
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: <Widget>[
-        Align(
-          alignment: Alignment.centerLeft,
-          child: buildHeader(title: 'Peta Persebaran'),
+        Text(
+          'Peta Persebaran',
+          style: TextStyle(
+            fontFamily: 'Poppins',
+            color: Colors.black87,
+            fontWeight: FontWeight.w600,
+            fontSize: 16,
+          ),
         ),
-        SizedBox(height: spacing(0.5)),
-        Container(
-          height: 315,
-          width: 330,
-          decoration: BoxDecoration(
-            color: white,
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, 2),
-                blurRadius: 10,
-                color: Color.fromRGBO(0, 0, 2, 0.0643399),
-              ),
-            ],
+        Card(
+          color: Colors.white,
+          shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(18),
           ),
+          elevation: 8,
           child: Column(
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              Stack(
                 children: <Widget>[
-                  Container(
-                    height: 206,
-                    width: 319,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(16.0),
-                        image: DecorationImage(
-                            image: AssetImage("assets/images/Bitmap.png"))),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(26.0),
-                              color: white),
-                          child: Icon(
-                            Icons.arrow_right,
-                            size: 35,
-                            color: Colors.grey,
-                          ),
-                        ),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(18),
+                    child: Image.asset('assets/images/Bitmap.png'),
+                  ),
+                  Positioned(
+                    bottom: 10,
+                    right: 10,
+                    child: Container(
+                      decoration: BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.white,
+                      ),
+                      padding: EdgeInsets.all(4),
+                      child: Icon(
+                        Icons.chevron_right,
+                        color: Colors.grey,
                       ),
                     ),
-                  )
+                  ),
                 ],
               ),
-              SizedBox(height: spacing(1)),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        '+893',
-                        style: theme.textTheme.display1.copyWith(
-                            color: Colors.orange, fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        'Kasus baru',
-                        style: theme.textTheme.body1
-                            .copyWith(color: Colors.orange),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        '478',
-                        style: theme.textTheme.display1.copyWith(
-                          color: Colors.purple[300],
-                          fontWeight: FontWeight.bold,
+              Padding(
+                padding: const EdgeInsets.all(24.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          '+893',
+                          style: theme.textTheme.display1.copyWith(
+                            color: Colors.orange,
+                            fontWeight: FontWeight.bold,
+                            height: 1.0,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'PDP',
-                        style: theme.textTheme.body1
-                            .copyWith(color: Colors.purple[300]),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: <Widget>[
-                      Text(
-                        '3703',
-                        style: theme.textTheme.display1.copyWith(
-                          color: Colors.lightBlue,
-                          fontWeight: FontWeight.bold,
+                        Text(
+                          'Kasus Baru',
+                          style: theme.textTheme.body1.copyWith(
+                            color: Colors.orange,
+                          ),
                         ),
-                      ),
-                      Text(
-                        'ODP',
-                        style: theme.textTheme.body1
-                            .copyWith(color: Colors.lightBlue),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          '578',
+                          style: theme.textTheme.display1.copyWith(
+                            color: Colors.purple[300],
+                            fontWeight: FontWeight.bold,
+                            height: 1.0,
+                          ),
+                        ),
+                        Text(
+                          'PDP',
+                          style: theme.textTheme.body1.copyWith(
+                            color: Colors.purple[300],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          '3703',
+                          style: theme.textTheme.display1.copyWith(
+                            color: Colors.lightBlue,
+                            fontWeight: FontWeight.bold,
+                            height: 1.0,
+                          ),
+                        ),
+                        Text(
+                          'ODP',
+                          style: theme.textTheme.body1.copyWith(
+                            color: Colors.lightBlue,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ],
           ),
