@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/view/do_page.dart';
-import 'package:itacov/view/home_screen.dart';
-import 'package:itacov/view/news_page.dart';
-import 'package:itacov/view/profile.dart';
+import 'package:itacov/ui/view/do_page.dart';
+import 'package:itacov/ui/view/home_page.dart';
+import 'package:itacov/ui/view/news_page.dart';
+import 'package:itacov/ui/view/profile_page.dart';
 
 class MainPage extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
 
   final _lisPage = <Widget>[
-    HomeScreen(),
+    HomePage(),
     DoPage(),
     ProfilePage(),
     NewsPage(),

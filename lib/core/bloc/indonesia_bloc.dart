@@ -1,5 +1,5 @@
-import 'package:itacov/model/indonesia_model.dart';
-import 'package:itacov/repo/corona_repo.dart';
+import 'package:itacov/core/model/indonesia_model.dart';
+import 'package:itacov/core/repository/corona_repo.dart';
 import 'package:rxdart/rxdart.dart';
 
 class IndonesiaBloc {
