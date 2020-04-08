@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:itacov/core/bloc/indonesia/bloc.dart';
 import 'package:itacov/ui/constant/constant.dart';
+import 'package:itacov/ui/constant/injector.dart';
 import 'package:itacov/ui/widgets/app_widgets.dart';
 import 'package:itacov/ui/widgets/home_body.dart';
 
@@ -13,6 +16,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+
       body: SizedBox.expand(
         child: Stack(
           children: <Widget>[
@@ -20,9 +24,32 @@ class _HomePageState extends State<HomePage> {
               image: "assets/images/main.png",
               tagline: 'Lawan\nCOVID-19',
               imageTop: spacing(15),
+
+      body: BlocProvider<IndonesiaBloc>(
+        create: (context) => sl<IndonesiaBloc>(),
+        child: BlocListener<IndonesiaBloc, IndonesiaState>(
+          listener: (context, state) {
+            if (state is FailureIndonesiaState) {
+              Scaffold.of(context).showSnackBar(SnackBar(
+                content: Text(state.errorMessage),
+              ));
+            }
+          },
+          child: SizedBox.expand(
+            child: Stack(
+              children: <Widget>[
+                AppWidget(
+                  image: "assets/images/main.png",
+                  tagline: 'Lawan\nCOVID-19',
+                  imageTop: 120,
+                ),
+                SingleChildScrollView(
+                  child: HomeBody(),
+                )
+              ],
+
             ),
-            SingleChildScrollView(child: HomeBody())
-          ],
+          ),
         ),
       ),
     );
