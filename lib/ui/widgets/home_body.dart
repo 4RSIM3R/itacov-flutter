@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:itacov/core/bloc/dunia_bloc.dart';
-import 'package:itacov/core/bloc/indonesia_bloc.dart';
-import 'package:itacov/core/model/dunia_model.dart';
-=======
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itacov/core/bloc/indonesia/bloc.dart';
->>>>>>> 78ec888dfebeca58daf0c562ffdd1a0d7ebc2853
 import 'package:itacov/core/model/indonesia_model.dart';
 import 'package:itacov/ui/constant/constant.dart';
 
@@ -23,16 +17,9 @@ class _HomeBodyState extends State<HomeBody> {
   void initState() {
     super.initState();
     regionController.text = 'Seluruh Indonesia';
-<<<<<<< HEAD
-    indonesiaBloc..getIndonesia();
-    duniaBloc..getSembuh();
-    duniaBloc..getPositif();
-    duniaBloc..getMeninggal();
-=======
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<IndonesiaBloc>(context).add(LoadDataIndonesiaEvent());
     });
->>>>>>> 78ec888dfebeca58daf0c562ffdd1a0d7ebc2853
   }
 
   @override
