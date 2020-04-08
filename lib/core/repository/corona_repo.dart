@@ -1,3 +1,4 @@
+import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:itacov/core/model/indonesia_model.dart';
 import 'package:itacov/core/model/provinsi_model.dart';
@@ -14,18 +15,22 @@ class RepoApi {
 
   Dio _dio = Dio();
 
-  Future<Indonesia> getDataIndonesia() async {
-    Response response = await _dio.get(indonesia);
-    return Indonesia.fromJson(response.data[0]);
+  Future<Either<String,IndonesiaModel>> getDataIndonesia() async {
+    try {
+      Response response = await _dio.get(indonesia);
+      return Right(IndonesiaModel.fromJson(response.data[0]));
+    } on DioError catch (error) {
+      return Left(error.message);
+    }
   }
 
   /// @return map
   /// get Data Provinsi
-  Future<Provinsi> getProvinsi() async {
+  Future<ProvinsiModel> getProvinsi() async {
     try {
       Response response = await _dio.get(provinsiUrl);
       print(response.data);
-      return Provinsi.fromJson(response.data);
+      return ProvinsiModel.fromJson(response.data);
     } catch (e) {
       return e;
     }
