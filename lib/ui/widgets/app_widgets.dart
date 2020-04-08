@@ -30,8 +30,8 @@ class AppWidget extends StatelessWidget {
             child: Stack(
               children: <Widget>[
                 Positioned(
-                  top: 60,
-                  left: 20,
+                  top: spacing(7.5),
+                  left: spacing(2.5),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -58,8 +58,8 @@ class AppWidget extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 60,
-                  right: 20,
+                  top: spacing(7.5),
+                  right: spacing(2.5),
                   child: Icon(
                     Icons.notifications,
                     color: Colors.white,
@@ -68,7 +68,7 @@ class AppWidget extends StatelessWidget {
                 ),
                 Positioned(
                   top: imageTop,
-                  right: 24,
+                  right: spacing(3),
                   child: Image.asset(
                     image,
                     fit: BoxFit.fill,

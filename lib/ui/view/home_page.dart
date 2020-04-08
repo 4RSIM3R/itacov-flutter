@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
             AppWidget(
               image: "assets/images/main.png",
               tagline: 'Lawan\nCOVID-19',
-              imageTop: 120,
+              imageTop: spacing(15),
             ),
             SingleChildScrollView(child: HomeBody())
           ],
