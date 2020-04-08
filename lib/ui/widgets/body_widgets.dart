@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/constant/constant.dart';
-import 'package:itacov/constant/typhography.dart';
+import 'package:itacov/ui/constant/constant.dart';
+import 'package:itacov/ui/constant/typography.dart';
+
 
 class BodyCustomWidget extends StatelessWidget {
   @override
@@ -18,7 +19,7 @@ class BodyCustomWidget extends StatelessWidget {
         child: Column(
           children: <Widget>[
             InputSearchField(size: size),
-            
+
             SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -37,10 +38,6 @@ class BodyCustomWidget extends StatelessWidget {
     );
   }
 }
-
-
-
-
 
 class InputSearchField extends StatelessWidget {
   const InputSearchField({
@@ -87,4 +84,3 @@ Container buildIconHeader({icon, color}) {
     ),
   );
 }
-

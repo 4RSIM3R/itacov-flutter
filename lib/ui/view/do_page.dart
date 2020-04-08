@@ -2,8 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:itacov/widgets/app_widgets.dart';
-import 'package:itacov/widgets/card_widget.dart';
+import 'package:itacov/ui/widgets/app_widgets.dart';
+import 'package:itacov/ui/widgets/card_widget.dart';
 
 import '../constant/constant.dart';
 
@@ -11,17 +11,16 @@ class DoPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Stack(
-            children: <Widget>[
-              AppWidget(
-                image: "assets/images/do.png",
-                tagline: 'Apa yang bisa\nDilakukan ?',
-              ),
-              BodyWidget(),
-            ],
-          ),
+      body: SizedBox.expand(
+        child: Stack(
+          children: <Widget>[
+            AppWidget(
+              image: "assets/images/do.png",
+              tagline: 'Apa yang bisa\nDilakukan ?',
+              imageTop: 60,
+            ),
+            SingleChildScrollView(child: BodyWidget()),
+          ],
         ),
       ),
     );
@@ -244,7 +243,7 @@ class PahlawanWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 5,
+            height: spacing(0.5),
           ),
           Container(
             width: 166,
@@ -405,7 +404,7 @@ class CardHoax extends StatelessWidget {
               height: 134,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(20.0)),
                 border: Border.all(
                   color: Colors.black,
                   width: 1,
@@ -416,26 +415,21 @@ class CardHoax extends StatelessWidget {
                 size: 80,
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: spacing(1.5)),
             Container(
               width: 136,
               child: Text(
                 'Video wanita sakit paru-paru BUKAN COVID-19',
                 style: TextStyle(
-                  fontFamily: 'Poppins',
                   fontWeight: FontWeight.w600,
                   fontSize: 12,
                   color: Colors.black,
                 ),
               ),
             ),
-            
             Text(
               '+ 2 Poin',
               style: TextStyle(
-                fontFamily: 'Poppins',
                 fontWeight: FontWeight.w700,
                 fontSize: 12,
                 color: Color(0XFFDC10AF),

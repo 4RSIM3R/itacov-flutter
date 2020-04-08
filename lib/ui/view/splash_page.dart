@@ -1,21 +1,23 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:itacov/constant/constant.dart';
+import 'package:itacov/ui/constant/constant.dart';
 
-class Splash extends StatefulWidget {
-  const Splash({Key key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key key}) : super(key: key);
 
   @override
-  _SplashState createState() => _SplashState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashState extends State<Splash> {
+class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
     Timer(
-        Duration(seconds: 2), () => Navigator.of(context).pushNamed(mainPage));
+      Duration(seconds: 2),
+      () => Navigator.of(context).pushNamed(mainPage),
+    );
   }
 
   @override
@@ -43,22 +45,30 @@ class _SplashState extends State<Splash> {
                   Text(
                     'ITA',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.headline,
+                    style: Theme.of(context).textTheme.display1.copyWith(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   Text(
                     'COV',
                     textAlign: TextAlign.center,
-                    style: Theme.of(context)
-                        .textTheme
-                        .headline
-                        .apply(color: txtPink),
+                    style: Theme.of(context).textTheme.display1.copyWith(
+                          color: txtPink,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                 ],
               ),
               Text(
                 'Indonesia\nTanggap\nCOVID-19',
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.headline,
+                style: Theme.of(context).textTheme.headline.copyWith(
+                  color: white,
+                  height: 1.5,
+                  fontFamily: 'Poppins',
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ],
           ),
