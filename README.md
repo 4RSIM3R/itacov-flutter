@@ -14,11 +14,8 @@ Sebuah project aplikasi mobile open source made with flutter, di harapkan dapat 
 - [Roma]
 - [Steven] 
 - [Yudi Setiawan | CoderJava](mailto:kolonel.yudisetiawan@gmail.com)
-## for Home Screen 
-![screenshoot](flutter_01.png)
 
-## for info page
-![screenshoot](flutter_02.png)
+
 
 ## Link Trello
 **[linktrelo](https://trello.com/invite/b/prPaFoco/6b7839d2f902ed0f3620f981d9391675/itacov)**
