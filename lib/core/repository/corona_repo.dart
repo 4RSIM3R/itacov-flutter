@@ -21,7 +21,7 @@ class RepoApi {
 
   Dio _dio = Dio();
 
-  Future<Either<String,IndonesiaModel>> getDataIndonesia() async {
+  Future<Either<String, IndonesiaModel>> getDataIndonesia() async {
     try {
       Response response = await _dio.get(indonesia);
       return Right(IndonesiaModel.fromJson(response.data[0]));
@@ -32,12 +32,12 @@ class RepoApi {
 
   /// @return map
   /// get Data Provinsi
-  Future<ProvinsiModel> getProvinsi() async {
+  Future<Either<String, ProvinsiModel>> getProvinsi() async {
     try {
       Response response = await _dio.get(provinsiUrl);
-      return ProvinsiModel.fromJson(response.data);
-    } catch (e) {
-      return e;
+      return Right(ProvinsiModel.fromJson(response.data));
+    } on DioError catch (error) {
+      return Left(error.message);
     }
   }
 

@@ -5,6 +5,7 @@ import './bloc.dart';
 
 class IndonesiaBloc extends Bloc<IndonesiaEvent, IndonesiaState> {
   final RepoApi repoApi;
+
   IndonesiaBloc(this.repoApi);
 
   @override
