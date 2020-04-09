@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:itacov/ui/constant/constant.dart';
 
 class CardWidget extends StatelessWidget {
   final Icon icon;
@@ -18,7 +19,7 @@ class CardWidget extends StatelessWidget {
             color: Color(0XFFFFFFFF),
           ),
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: EdgeInsets.all(spacing(2.5)),
             child: Row(
               children: <Widget>[
                 icon,

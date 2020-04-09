@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:itacov/core/bloc/dunia_bloc.dart';
-import 'package:itacov/core/bloc/indonesia_bloc.dart';
-import 'package:itacov/core/model/dunia_model.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:itacov/core/bloc/indonesia/bloc.dart';
 import 'package:itacov/core/model/indonesia_model.dart';
 import 'package:itacov/ui/constant/constant.dart';
 
@@ -18,10 +17,9 @@ class _HomeBodyState extends State<HomeBody> {
   void initState() {
     super.initState();
     regionController.text = 'Seluruh Indonesia';
-    indonesiaBloc..getIndonesia();
-    duniaBloc..getSembuh();
-    duniaBloc..getPositif();
-    duniaBloc..getMeninggal();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      BlocProvider.of<IndonesiaBloc>(context).add(LoadDataIndonesiaEvent());
+    });
   }
 
   @override
@@ -36,16 +34,29 @@ class _HomeBodyState extends State<HomeBody> {
         child: Column(
           children: <Widget>[
             _buildRegionInput(),
+            SizedBox(
+              height: spacing(2),
+            ),
             UpdateKasus(),
-            SizedBox(height: spacing(3)),
+            SizedBox(
+              height: spacing(2),
+            ),
             CardKasusIndonesia(),
-            SizedBox(height: spacing(3)),
+            SizedBox(
+              height: spacing(2),
+            ),
             PetaPersebaran(),
-            SizedBox(height: spacing(3)),
+            SizedBox(
+              height: spacing(2),
+            ),
             BeritaTerbaru(),
-            SizedBox(height: spacing(3)),
+            SizedBox(
+              height: spacing(2),
+            ),
             ListBerita(),
-            SizedBox(height: spacing(3)),
+            SizedBox(
+              height: spacing(2),
+            ),
             BeritaDunia(),
             SizedBox(height: spacing(3)),
             buildCardKasusDunia(),
@@ -102,7 +113,7 @@ class CardBerita extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: spacing(1),
             ),
             Container(
               width: 136,
@@ -145,7 +156,7 @@ class BeritaDunia extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            SizedBox(height: 3),
+            SizedBox(height: spacing(0.5)),
             Text(
               "Data akumulasi dari awal muncul",
               style: TextStyle(
@@ -334,31 +345,28 @@ class CardKasusIndonesia extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var boxDecoration = BoxDecoration(
-      color: white,
-      borderRadius: BorderRadius.all(
-        Radius.circular(18),
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(18),
       ),
-      boxShadow: [
-        BoxShadow(
-          offset: Offset(0, 2),
-          color: Color.fromRGBO(0, 0, 2, 0.0643399),
-        ),
-      ],
-    );
-    return Container(
-      width: 330,
-      height: 141,
-      decoration: boxDecoration,
+      elevation: 8,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        child: StreamBuilder<IndonesiaModel>(
-          stream: indonesiaBloc.subject.stream,
-          builder: (context, AsyncSnapshot snapshot) {
-            if (snapshot.hasData) return buildRowUpdateKasus(snapshot.data);
-            return Center(
-              child: CircularProgressIndicator(),
-            );
+        padding: const EdgeInsets.all(16.0),
+        child: BlocBuilder<IndonesiaBloc, IndonesiaState>(
+          builder: (context, state) {
+            if (state is LoadingIndonesiaState) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is LoadedIndonesiaState) {
+              return buildRowUpdateKasus(state.indonesiaModel);
+            } else if (state is FailureIndonesiaState) {
+              return Center(
+                child: Text(state.errorMessage),
+              );
+            } else {
+              return Container();
+            }
           },
         ),
       ),
