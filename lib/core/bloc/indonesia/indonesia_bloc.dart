@@ -5,16 +5,13 @@ import './bloc.dart';
 
 class IndonesiaBloc extends Bloc<IndonesiaEvent, IndonesiaState> {
   final RepoApi repoApi;
-
   IndonesiaBloc(this.repoApi);
 
   @override
   IndonesiaState get initialState => InitialIndonesiaState();
 
   @override
-  Stream<IndonesiaState> mapEventToState(
-    IndonesiaEvent event,
-  ) async* {
+  Stream<IndonesiaState> mapEventToState(IndonesiaEvent event) async* {
     if (event is LoadDataIndonesiaEvent) {
       yield* _mapLoadDataIndonesiaEventToState();
     }
