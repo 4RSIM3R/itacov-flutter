@@ -22,9 +22,7 @@ class _HomePageState extends State<HomePage> {
           listener: (context, state) {
             if (state is FailureIndonesiaState) {
               Scaffold.of(context).showSnackBar(
-                SnackBar(
-                  content: Text(state.errorMessage),
-                ),
+                SnackBar(content: Text(state.errorMessage)),
               );
             }
           },
