@@ -4,13 +4,14 @@ created by: stefensuhat at 06 Apr 2020 20.56
 */
 
 import 'package:flutter/material.dart';
+import 'package:itacov/ui/constant/constant.dart';
 import 'package:itacov/ui/shared/images.dart';
 
 class NewsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.0),
+      margin: EdgeInsets.only(bottom: spacing(2)),
       child: Row(
         children: <Widget>[
           ClipRRect(

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:itacov/ui/constant/constant.dart';
 import 'package:itacov/ui/constant/typography.dart';
 
-
 class BodyCustomWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -20,17 +19,17 @@ class BodyCustomWidget extends StatelessWidget {
           children: <Widget>[
             InputSearchField(size: size),
 
-            SizedBox(height: 20),
+            SizedBox(height: spacing(2.5)),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 headingTextMedium(text: "Peta Persebaran", color: Colors.grey),
               ],
             ),
-            SizedBox(height: 20),
-            SizedBox(height: 20),
+            SizedBox(height: spacing(2.5)),
+            SizedBox(height: spacing(2.5)),
             // ListBerita(),
-            SizedBox(height: 20),
+            SizedBox(height: spacing(2.5)),
             // BeritaDunia()
           ],
         ),

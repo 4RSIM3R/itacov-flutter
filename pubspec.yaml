@@ -12,6 +12,7 @@ dependencies:
   dio: ^3.0.9
   rxdart: ^0.23.1
   get_it: ^4.0.1
+  google_nav_bar: ^2.2.0
   flutter_bloc: ^3.2.0
   dartz: ^0.8.9
 

@@ -4,6 +4,7 @@ created by: stefensuhat at 06 Apr 2020 20.42
 */
 
 import 'package:flutter/material.dart';
+import 'package:itacov/ui/constant/constant.dart';
 import 'package:itacov/ui/widgets/news_list.dart';
 
 class NewsPage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _NewsPageState extends State<NewsPage> {
         ),
       ),
       body: SingleChildScrollView(
-          padding: EdgeInsets.all(16),
+          padding: EdgeInsets.all(spacing(2)),
           child: Column(
             children: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((i) {
               return NewsList();

@@ -47,7 +47,7 @@ class BodyWidget extends StatelessWidget {
               onTap: () {},
             ),
             SizedBox(
-              height: 10,
+              height: spacing(1),
             ),
             CardWidget(
               icon: Icon(Icons.check_box),
@@ -59,7 +59,7 @@ class BodyWidget extends StatelessWidget {
             ),
             HelpCenterWidget(),
             SizedBox(
-              height: 10,
+              height: spacing(1),
             ),
             CardWidget(
               icon: Icon(Icons.home),
@@ -67,7 +67,7 @@ class BodyWidget extends StatelessWidget {
               onTap: () {},
             ),
             SizedBox(
-              height: 10,
+              height: spacing(1),
             ),
             CardWidget(
               icon: Icon(Icons.laptop),
@@ -75,15 +75,15 @@ class BodyWidget extends StatelessWidget {
               onTap: () {},
             ),
             SizedBox(
-              height: 38,
+              height: spacing(5),
             ),
             PahlawanWidget(),
             SizedBox(
-              height: 36,
+              height: spacing(5),
             ),
             KerumunanWidget(),
             SizedBox(
-              height: 36,
+              height: spacing(5),
             ),
             HoaxPage(),
           ],
@@ -258,7 +258,7 @@ class PahlawanWidget extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 10,
+            height: spacing(1),
           ),
           RaisedButton(
             onPressed: () {},
@@ -360,7 +360,7 @@ class HoaxPage extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 10,
+          height: spacing(1),
         ),
         Text(
           'Berikut adalah beberapa informasi bantahan terhadap HOAX yang beredar yang telah dikonfirmasi oleh Humas POLRI. Bagikan informasi ini dan dapatkan ITACOV-Poin!',

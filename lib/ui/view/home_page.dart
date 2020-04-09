@@ -16,6 +16,15 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+
+      body: SizedBox.expand(
+        child: Stack(
+          children: <Widget>[
+            AppWidget(
+              image: "assets/images/main.png",
+              tagline: 'Lawan\nCOVID-19',
+              imageTop: spacing(15),
+
       body: BlocProvider<IndonesiaBloc>(
         create: (context) => sl<IndonesiaBloc>(),
         child: BlocListener<IndonesiaBloc, IndonesiaState>(
@@ -38,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                   child: HomeBody(),
                 )
               ],
+
             ),
           ),
         ),

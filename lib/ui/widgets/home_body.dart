@@ -113,7 +113,7 @@ class CardBerita extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: spacing(1),
             ),
             Container(
               width: 136,
@@ -156,7 +156,7 @@ class BeritaDunia extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            SizedBox(height: 3),
+            SizedBox(height: spacing(0.5)),
             Text(
               "Data akumulasi dari awal muncul",
               style: TextStyle(
