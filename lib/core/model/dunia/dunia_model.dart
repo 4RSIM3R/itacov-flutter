@@ -6,8 +6,10 @@ part 'dunia_model.g.dart';
 class DuniaModel {
   String name;
   String value;
+
   DuniaModel({this.name, this.value});
-  factory DuniaModel.fromJson(Map<String, dynamic> json) =>
-      _$DuniaModelFromJson(json);
-  Map<String , dynamic> toJson() => _$DuniaModelToJson(this);
+
+  factory DuniaModel.fromJson(Map<String, dynamic> json) => _$DuniaModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$DuniaModelToJson(this);
 }

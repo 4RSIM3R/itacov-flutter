@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:itacov/core/repository/corona_repo.dart';
+import 'package:itacov/core/repository/repo_api.dart';
 import './bloc.dart';
 
 class IndonesiaBloc extends Bloc<IndonesiaEvent, IndonesiaState> {
