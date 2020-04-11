@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:itacov/core/model/dunia_model.dart';
-import 'package:itacov/core/model/indonesia_model.dart';
+import 'package:itacov/core/model/dunia/dunia_model.dart';
+import 'package:itacov/core/model/indonesia/indonesia_model.dart';
 import 'package:itacov/core/model/provinsi_model.dart';
 
 /// Ini Adalah Class Repo
@@ -42,23 +42,31 @@ class RepoApi {
   }
 
   // Get Data Sembuh Dunia
-  Future<DuniaModel> getSembuh() async {
+  Future<Either<String, DuniaModel>> getDataSembuhDunia() async {
     try {
       Response response = await _dio.get(sembuhfDunia);
-      return DuniaModel.fromJson(response.data);
-    } catch (e) {
-      return e;
+      return Right(DuniaModel.fromJson(response.data));
+    } on DioError catch (error) {
+      return Left(error.message);
     }
   }
 
   // Get data Positf Dunia
-  Future<DuniaModel> getPositif() async {
-    Response response = await _dio.get(positifDunia);
-    return DuniaModel.fromJson(response.data);
+  Future<Either<String, DuniaModel>> getDataPositifDunia() async {
+    try {
+      Response response = await _dio.get(positifDunia);
+      return Right(DuniaModel.fromJson(response.data));
+    } on DioError catch (error) {
+      return Left(error.message);
+    }
   }
 
-  Future<DuniaModel> getMeninggal() async {
-    Response response = await _dio.get(meninggalDunia);
-    return DuniaModel.fromJson(response.data);
+  Future<Either<String, DuniaModel>> getDataMeninggalDunia() async {
+    try {
+      Response response = await _dio.get(meninggalDunia);
+      return Right(DuniaModel.fromJson(response.data));
+    } on DioError catch (error) {
+      return Left(error.message);
+    }
   }
 }

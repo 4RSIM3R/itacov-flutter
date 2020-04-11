@@ -1,4 +1,4 @@
-import 'package:itacov/core/model/indonesia_model.dart';
+import 'package:itacov/core/model/indonesia/indonesia_model.dart';
 import 'package:meta/meta.dart';
 
 @immutable

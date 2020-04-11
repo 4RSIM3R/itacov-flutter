@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:itacov/core/bloc/dunia/bloc.dart';
 import 'package:itacov/core/bloc/indonesia/bloc.dart';
-import 'package:itacov/core/model/indonesia_model.dart';
+import 'package:itacov/core/model/indonesia/indonesia_model.dart';
 import 'package:itacov/ui/constant/constant.dart';
 
 class HomeBody extends StatefulWidget {
@@ -19,6 +20,7 @@ class _HomeBodyState extends State<HomeBody> {
     regionController.text = 'Seluruh Indonesia';
     WidgetsBinding.instance.addPostFrameCallback((_) {
       BlocProvider.of<IndonesiaBloc>(context).add(LoadDataIndonesiaEvent());
+      BlocProvider.of<DuniaBloc>(context).add(LoadDuniaEvent());
     });
   }
 
@@ -28,8 +30,7 @@ class _HomeBodyState extends State<HomeBody> {
       padding: EdgeInsets.only(top: 234),
       child: Container(
         width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
+        decoration: BoxDecoration(borderRadius: BorderRadius.circular(36), color: Color(0xFFFEFEFE)),
         padding: EdgeInsets.only(top: 26, left: 22, right: 22, bottom: 100),
         child: Column(
           children: <Widget>[
@@ -59,14 +60,12 @@ class _HomeBodyState extends State<HomeBody> {
             ),
             BeritaDunia(),
             SizedBox(height: spacing(3)),
-            buildCardKasusDunia(),
+            CardKasusDunia(),
           ],
         ),
       ),
     );
   }
-
-  buildCardKasusDunia() => CardKasusDunia();
 
   Widget _buildRegionInput() {
     return Container(
@@ -100,8 +99,7 @@ class CardBerita extends StatelessWidget {
               height: 134,
               width: double.infinity,
               decoration: BoxDecoration(
-                borderRadius:
-                    BorderRadius.vertical(top: Radius.circular(spacing(2))),
+                borderRadius: BorderRadius.vertical(top: Radius.circular(spacing(2))),
                 border: Border.all(
                   color: Colors.black,
                   width: 1,
@@ -113,7 +111,7 @@ class CardBerita extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 10,
+              height: spacing(1),
             ),
             Container(
               width: 136,
@@ -156,7 +154,7 @@ class BeritaDunia extends StatelessWidget {
                 fontSize: 16,
               ),
             ),
-            SizedBox(height: 3),
+            SizedBox(height: spacing(0.5)),
             Text(
               "Data akumulasi dari awal muncul",
               style: TextStyle(
@@ -207,10 +205,7 @@ class BeritaTerbaru extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return buildHeader(
-        title: 'Berita Terbaru',
-        desc: 'Diperbaharui 1 jam yang lalu',
-        onPressedAction: () => Navigator.pushNamed(context, '/news'));
+    return buildHeader(title: 'Berita Terbaru', desc: 'Diperbaharui 1 jam yang lalu', onPressedAction: () => Navigator.pushNamed(context, '/news'));
   }
 }
 
@@ -493,64 +488,76 @@ Widget buildHeader({String title, String desc = '', Function onPressedAction}) {
 class CardKasusDunia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var boxDecoration = BoxDecoration(
-      color: white,
-      borderRadius: BorderRadius.all(
-        Radius.circular(18),
-      ),
-      boxShadow: [
-        BoxShadow(
-          offset: Offset(0, 2),
-          color: Color.fromRGBO(0, 0, 2, 0.0643399),
-        ),
-      ],
-    );
     return Container(
-      width: 330,
-      height: 299,
-      decoration: boxDecoration,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Column(
-            children: <Widget>[
-              SizedBox(height: spacing(3)),
-              StreamBuilder<DuniaModel>(
-                  stream: duniaBloc.datapositif.stream,
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData)
-                      return buildTileKasusDunia(
-                          title: "${snapshot.data.name} Seluruh Dunia",
-                          icon: Icons.add,
-                          number: snapshot.data.value.toString(),
-                          color: Colors.orange);
-                    return Container();
-                  }),
-              StreamBuilder<DuniaModel>(
-                  stream: duniaBloc.datasembuh.stream,
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData)
-                      return buildTileKasusDunia(
-                          title: "${snapshot.data.name} Seluruh Dunia",
-                          icon: Icons.healing,
-                          number: snapshot.data.value.toString(),
-                          color: Colors.green);
-                    return Center(child: CircularProgressIndicator());
-                  }),
-              StreamBuilder<DuniaModel>(
-                  stream: duniaBloc.datamati.stream,
-                  builder: (context, AsyncSnapshot snapshot) {
-                    if (snapshot.hasData)
-                      return buildTileKasusDunia(
-                          title: "${snapshot.data.name} Seluruh Dunia",
-                          icon: Icons.close,
-                          number: '3434',
-                          color: Colors.red);
-                    return Container();
-                  }),
-            ],
-          )
-        ],
+      width: double.infinity,
+      child: Card(
+        color: Colors.white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: BlocBuilder<DuniaBloc, DuniaState>(
+          builder: (context, state) {
+            if (state is LoadingDuniaState) {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            } else if (state is LoadedDuniaState) {
+              final listDuniaModel = state.listDuniaModel;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: listDuniaModel.asMap().keys.map((index) {
+                  final item = listDuniaModel[index];
+                  Color color;
+                  if (index == 0) {
+                    color = Colors.orange;
+                  } else if (index == 1) {
+                    color = Colors.green;
+                  } else {
+                    color = Colors.red;
+                  }
+                  return Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 16,
+                          top: 16,
+                          right: 16,
+                        ),
+                        child: Text(
+                          item.name,
+                          style: TextStyle(color: color),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 16,
+                          right: 16,
+                          bottom: 8,
+                        ),
+                        child: Text(
+                          item.value,
+                          style: TextStyle(
+                            color: color,
+                            fontSize: 32,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      index == listDuniaModel.length - 1 ? Container() : Divider(thickness: 1),
+                    ],
+                  );
+                }).toList(),
+              );
+            } else if (state is FailureDuniaState) {
+              return Center(
+                child: Text(state.errorMessage),
+              );
+            } else {
+              return Container();
+            }
+          },
+        ),
       ),
     );
   }
@@ -569,11 +576,7 @@ class CardKasusDunia extends StatelessWidget {
             Column(
               children: <Widget>[
                 Text(title, style: TextStyle(color: color, fontSize: 12)),
-                Text(number,
-                    style: TextStyle(
-                        color: color,
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold)),
+                Text(number, style: TextStyle(color: color, fontSize: 32, fontWeight: FontWeight.bold)),
               ],
             )
           ],

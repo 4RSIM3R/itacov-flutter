@@ -6,5 +6,3 @@ void main() {
   di.init();
   runApp(ItacovApp());
 }
-
-
