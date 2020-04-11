@@ -17,6 +17,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: white,
+<<<<<<< HEAD
       body: MultiBlocProvider(
         providers: [
           BlocProvider<IndonesiaBloc>(
@@ -38,6 +39,31 @@ class _HomePageState extends State<HomePage> {
                 child: HomeBody(),
               )
             ],
+=======
+      body: BlocProvider<IndonesiaBloc>(
+        create: (context) => sl<IndonesiaBloc>(),
+        child: BlocListener<IndonesiaBloc, IndonesiaState>(
+          listener: (context, state) {
+            if (state is FailureIndonesiaState) {
+              Scaffold.of(context).showSnackBar(
+                SnackBar(content: Text(state.errorMessage)),
+              );
+            }
+          },
+          child: SizedBox.expand(
+            child: Stack(
+              children: <Widget>[
+                AppWidget(
+                  image: "assets/images/main.png",
+                  tagline: 'Lawan\nCOVID-19',
+                  imageTop: 120,
+                ),
+                SingleChildScrollView(
+                  child: HomeBody(),
+                )
+              ],
+            ),
+>>>>>>> ff3e29b83861337799a730f9712074a678e68de5
           ),
         ),
       ),
