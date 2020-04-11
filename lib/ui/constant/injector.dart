@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import 'package:itacov/core/bloc/indonesia/bloc.dart';
+import 'package:itacov/core/bloc/provinsi/bloc.dart';
 import 'package:itacov/core/repository/corona_repo.dart';
 
 final sl = GetIt.instance;
@@ -10,4 +11,6 @@ void init() {
 
   // BLoC
   sl.registerFactory(() => IndonesiaBloc(sl()));
+  sl.registerFactory(() => ProvinsiBloc(sl()));
+
 }

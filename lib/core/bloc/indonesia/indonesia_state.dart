@@ -16,6 +16,6 @@ class FailureIndonesiaState extends IndonesiaState {
 
 class LoadedIndonesiaState extends IndonesiaState {
   final IndonesiaModel indonesiaModel;
-
+  
   LoadedIndonesiaState(this.indonesiaModel);
 }
