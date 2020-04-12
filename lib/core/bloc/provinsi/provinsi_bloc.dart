@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:itacov/core/bloc/indonesia/bloc.dart';
 import 'package:itacov/core/bloc/provinsi/bloc.dart';
-import 'package:itacov/core/repository/corona_repo.dart';
+import 'package:itacov/core/repository/repo_api.dart';
 
 import './bloc.dart';
 
