@@ -1,15 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-<<<<<<< HEAD
 import 'package:itacov/core/bloc/dunia/bloc.dart';
+import 'package:itacov/core/bloc/dunia/dunia_event.dart';
 import 'package:itacov/core/bloc/indonesia/bloc.dart';
 import 'package:itacov/core/model/indonesia/indonesia_model.dart';
-=======
-import 'package:itacov/core/bloc/dunia_bloc.dart';
-import 'package:itacov/core/bloc/indonesia/bloc.dart';
-import 'package:itacov/core/model/dunia_model.dart';
-import 'package:itacov/core/model/indonesia_model.dart';
->>>>>>> ff3e29b83861337799a730f9712074a678e68de5
 import 'package:itacov/ui/constant/constant.dart';
 
 class HomeBody extends StatefulWidget {
